@@ -42,7 +42,7 @@ Train#shift : Object
 // push an element to the queue head
 Train#push( el ) : Number
 // get the queue size/length
-Train#size : Number
+Train#size() : Number
 // reset queue
 Train#flush( index ) : Number
 ```
