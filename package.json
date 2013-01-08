@@ -1,0 +1,19 @@
+{
+    "name" : "train"
+  , "version" : "1.0.0"
+  , "description" : "Train module is an implementation of a Queue data structure. It uses 2 arrays, to simulate and perform a fast element shift operation on its head, without using the Array#shift() method."
+  , "homepage" : "https://github.com/rootslab/train"
+  , "repository" : {
+        "type" : "git"
+        ,"url" : "git://github.com/rootslab/train.git"
+    }
+  , "keywords" : [ "queue", "util" ]
+  , "tags": [ "queue", "util" ]
+  , "author" : "Guglielmo Ferri <44gatti@gmail.com>"
+  , "dependencies" : {}
+  , "main": "index"
+  , "engines" : { "node" : ">=0.4.x" }
+  , "scripts" : {
+        "test" : "bash test/run.sh"
+  }
+}
