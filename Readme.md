@@ -38,6 +38,7 @@ Train.length : Number
 // get an element at certain index
 Train#get( index ) : Object
 // pop the head element from queue
+Train#pop : Object
 Train#shift : Object
 // push an element to the queue head
 Train#push( el ) : Number
