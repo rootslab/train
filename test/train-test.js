@@ -55,6 +55,14 @@ log( '- flush the queue, then should be 0.' );
 t.flush();
 size = t.size();
 assert.equal( size, 0, '- Test failed! The queue should be empty, now its size is:' + size );
+
 log( '- queue.shift() should return an undefined value.' );
 el = t.shift();
 assert.equal( el, undefined, '- Test failed! The queue should be empty, shift should return an undefined value:' + el );
+
+log( '- push every element of an array into the queue.' );
+size = t.push( arr, true );
+log( '- ' + size + ' elements sliced and pushed.' );
+
+log( '- test if the size of array is %d.', arr.length  );
+assert.equal( size, arr.length, '- Test failed! The queue size should be ' + arr.length + ', now it is ' + size + '.' );

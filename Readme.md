@@ -36,14 +36,23 @@ Train.length : Number
 
 ```javascript
 // get an element at certain index
-Train#get( index ) : Object
+Train#get( Number index ) : Object
+
 // pop the head element from queue
-Train#pop : Object
-Train#shift : Object
-// push an element to the queue head
-Train#push( el ) : Number
+Train#pop() : Object
+Train#shift() : Object
+
+/*
+ * push an element to the head of queue;
+ * optionally if el is an array, and slice flag is true,
+ * every element will be pushed in the queue separetely;
+ * then it returns the resulting queue length
+ */
+Train#push( Object el [, Boolean slice ] ) : Number
+
 // get the queue size/length
 Train#size() : Number
+
 // reset queue
-Train#flush( index ) : Number
+Train#flush( Number index ) : Number
 ```
