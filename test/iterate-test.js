@@ -22,11 +22,15 @@ t.pop();
 log( '- push other 3 elements in the queue.' );
 t.push( arr.slice( 3 ), true );
 
-log( '- test parallel forEach method with some latency.' )
-t.forEach( function ( el, i ) {
+log( '- test iterate parallel and a final callback with some random latency.' )
+t.iterate( function ( el, i, done ) {
     // test if elements match with original ones
     setTimeout( function () {
         assert( el, arr[ i + 1 ] );
         log( ' > index %d: %s === %s ', i, el, arr[ i + 1 ] );
-    }, 800 * Math.random() );
+        done();
+    }, 800 * i * Math.random() );
+}, t, function ( err ) {
+    log( ' > test OK: I\'m the final callback!' );
+    assert.ifError( err );
 } );

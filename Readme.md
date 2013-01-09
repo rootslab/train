@@ -57,6 +57,18 @@ Train#size() : Number
 // reset queue
 Train#flush( Number index ) : Number
 
-// apply a fn to every element of the queue, like Array#forEach
+/*
+ * apply a fn to every element of the queue, like Array#forEach
+ * fn will get 2 args : ( Object element, Number index )
+ */
 Train#forEach( Function fn [, Object scope ] ) : null
+
+/*
+ * apply a fn to every element of the queue, like Array#forEach
+ * fn will get 3 args : ( Object element, Number index, Function done )
+ * after that every fn will have called done(), the function callback will be
+ * executed ( with an err argument if any has occurred ).
+ */
+Train#iterate( Function fn [, Object scope, [, Function callback ] ] ) : null
+
 ```
