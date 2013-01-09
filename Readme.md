@@ -44,7 +44,7 @@ Train#shift() : Object
 
 /*
  * push an element to the head of queue;
- * optionally if el is an array, and slice flag is true,
+ * optionally if el was an array, and slice flag was true,
  * every element will be pushed in the queue separetely;
  * then it returns the resulting queue length
  */

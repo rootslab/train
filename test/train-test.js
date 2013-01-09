@@ -64,5 +64,5 @@ log( '- push every element of an array into the queue.' );
 size = t.push( arr, true );
 log( '- ' + size + ' elements sliced and pushed.' );
 
-log( '- test if the size of array is %d.', arr.length  );
+log( '- test if the size of array was %d.', arr.length  );
 assert.equal( size, arr.length, '- Test failed! The queue size should be ' + arr.length + ', now it is ' + size + '.' );
