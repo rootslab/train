@@ -1,6 +1,6 @@
 ###Train 
 [![build status](https://travis-ci.org/rootslab/train.png)](https://travis-ci.org/rootslab/train)
-> The Train module is an implementation of a Queue data structure.
+> The Train module is an implementation of a ( FIFO ) Queue data structure.
 
 > It uses 2 arrays, to simulate and perform a fast element shift/pop operation, without using the Array#shift() method.
 
@@ -46,7 +46,7 @@ Train#shift() : Object
 /*
  * push an element to the tail of queue;
  * optionally if el was an array, and slice flag was true,
- * every element will be pushed in the queue separetely;
+ * every element will be pushed in the queue separately;
  * then it returns the resulting queue length
  */
 Train#push( Object el [, Boolean slice ] ) : Number
