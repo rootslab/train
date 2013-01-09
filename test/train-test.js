@@ -66,3 +66,11 @@ log( '- ' + size + ' elements sliced and pushed.' );
 
 log( '- test if the size of array was %d.', arr.length  );
 assert.equal( size, arr.length, '- Test failed! The queue size should be ' + arr.length + ', now it is ' + size + '.' );
+
+log( '- pop 2 elements from queue and re-push array of result to queue.' );
+t.push( t.pop( 2 ), true );
+
+log( '- pop 6 (all) elements from the queue.' );
+el = t.pop( 6 );
+assert.deepEqual( el.length, arr.length );
+
