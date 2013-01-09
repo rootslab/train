@@ -56,4 +56,7 @@ Train#size() : Number
 
 // reset queue
 Train#flush( Number index ) : Number
+
+// apply a fn to every element of the queue, like Array#forEach
+Train#forEach( Function fn [, Object scope ] ) : null
 ```
