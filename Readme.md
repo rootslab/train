@@ -1,7 +1,8 @@
 ###Train 
 [![build status](https://travis-ci.org/rootslab/train.png)](https://travis-ci.org/rootslab/train)
 > The Train module is an implementation of a Queue data structure.
-> It uses 2 arrays, to simulate and perform a fast element shift operation on its head, without using the Array#shift() method.
+
+> It uses 2 arrays, to simulate and perform a fast element shift/pop operation, without using the Array#shift() method.
 
 ###Install
 ```bash
