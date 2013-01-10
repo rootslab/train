@@ -39,15 +39,15 @@ Train.length : Number
 // get an element at certain index
 Train#get( Number index ) : Object
 
-// get the head element from queue
+// get the head element from the queue
 Train#shift() : Object
 
 /*
- * if total was defined, it returns an array of N elements
- * ( or all the elements until the end of queue was reached );
- * otherwise it returns a single element
+ * The same as shift, but if a number k was specified as argument,
+ * it returns an array of K elements ( K <= k, or all the elements until
+ * the end of queue was reached ); otherwise it returns a single element.
  */
-Train#pop( [ Number total ] ) : Object
+Train#pop( [ Number k ] ) : Object
 
 /*
  * push an element to the end of the queue;
