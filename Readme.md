@@ -50,18 +50,21 @@ Train#shift() : Object
 Train#pop( [ Number total ] ) : Object
 
 /*
- * push an element to the tail of queue;
- * optionally if el was an array, and slice flag was true,
- * every element will be pushed in the queue separately;
- * then it returns the resulting queue length
+ * push an element to the end of the queue;
+ * optionally if el was an array, and concat flag was true,
+ * every element will be pushed in the queue;
+ * then it returns the resulting queue length.
  */
-Train#push( Object el [, Boolean slice ] ) : Number
+Train#push( Object el [, Boolean concat ] ) : Number
 
 // get the queue size/length
 Train#size() : Number
 
-// reset queue
-Train#flush( Number index ) : Number
+/*
+ * a method to empty the queue.
+ * it returns the number of elements flushed.
+ */
+Train#flush() : Number
 
 /*
  * apply a fn to every element of the queue, like Array#forEach
