@@ -43,7 +43,7 @@ Train#get( Number index ) : Object
 Train#shift() : Object
 
 /*
- * The same as shift, ; if it was called without argument.
+ * The same as shift, if it was called without argument.
  * if a number k was specified, it returns an array of K elements ( K <= k )
  * If k > queue size, it returns all the elements until the end of queue.
  */
