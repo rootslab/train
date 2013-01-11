@@ -43,9 +43,9 @@ Train#get( Number index ) : Object
 Train#shift() : Object
 
 /*
- * The same as shift, but if a number k was specified as argument,
- * it returns an array of K elements ( K <= k, or all the elements until
- * the end of queue was reached ); otherwise it returns a single element.
+ * The same as shift, ; if it was called without argument.
+ * if a number k was specified, it returns an array of K elements ( K <= k )
+ * If k > queue size, it returns all the elements until the end of queue.
  */
 Train#pop( [ Number k ] ) : Object
 
