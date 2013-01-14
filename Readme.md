@@ -9,6 +9,13 @@
 ```bash
 $ npm install train [-g]
 ```
+
+> __require__:
+
+```javascript
+var Train  = require( 'train' );
+```
+
 ###Run Tests
 
 ```bash
