@@ -20,6 +20,7 @@ $npm test
 > Create an instance, optionally with an Array of elements. 
 
 ```javascript
+var Train  = require( 'train' );
 Train( [ Array elements ] )
 // or
 new Train( [ Array elements ] )
