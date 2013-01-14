@@ -5,14 +5,15 @@
 > It uses 2 arrays, to simulate and perform a fast element shift/pop operation, without using the Array#shift() method.
 
 ###Install
+
 ```bash
 $ npm install train [-g]
 ```
 ###Run Tests
 
 ```bash
-$cd train/
-$npm test
+$ cd train/
+$ npm test
 ```
 
 ###Constructor
