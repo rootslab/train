@@ -10,7 +10,7 @@ $ npm install train [-g]
 ```
 ###Run Tests
 
-```javascript
+```bash
 $cd train/
 $npm test
 ```
