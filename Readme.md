@@ -58,6 +58,14 @@ Train#shift() : Object
 Train#pop( [ Number k ] ) : Object
 
 /*
+ * a method to ( circular ) get an element at the specified index,
+ * or at current iterator position, starting from the head of queue; then
+ * it automatically increments the current iterator position, without
+ * evicting the element from the queue.
+ */
+Train#next( [ Number index ] ) : Object
+
+/*
  * push an element to the end of the queue;
  * optionally if el was an array, and concat flag was true,
  * every element will be pushed in the queue;
