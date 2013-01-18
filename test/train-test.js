@@ -12,6 +12,7 @@ var log = console.log,
     el = null,
     len = 0,
     size = 0,
+    i = 0,
     t = new Train();
 
 log( '- push 5 elements in the queue.' );
@@ -34,7 +35,7 @@ log( '- test if the current queue length is 2.' );
 len = t.length;
 assert.equal( len, 2, '- Test failed! Returned queue length is wrong: 2 !== ' + len );
 log( '- test if the current queue.length is == queue.size().' );
-size = t.size()
+size = t.size();
 assert.equal( len, 2, '- Test failed! Returned queue size is different from length:' + size + '!== ' + len );
 
 
@@ -73,4 +74,3 @@ t.push( t.pop( 2 ), true );
 log( '- pop 6 (all) elements from the queue.' );
 el = t.pop( 6 );
 assert.deepEqual( el.length, arr.length );
-
