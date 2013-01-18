@@ -1,6 +1,6 @@
 {
     "name" : "train"
-  , "version" : "1.3.0"
+  , "version" : "1.3.1"
   , "description" : "Train module is an implementation of a Queue data structure. It uses 2 arrays, to simulate and perform a fast element shift operation on its head, without using the Array#shift() method."
   , "homepage" : "https://github.com/rootslab/train"
   , "repository" : {
