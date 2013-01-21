@@ -54,7 +54,7 @@ while ( true ) {
 }
 assert.equal( el, t.get( 0 ) );
 
-log( '- test next(3) returned index after a queue pop/shift operation.' );
+log( '- test next(3) reply, after a queue pop/shift operation.' );
 el = t.next( 3 );
 t.pop();
 
