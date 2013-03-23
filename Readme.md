@@ -36,8 +36,16 @@ new Train( [ Array elements ] )
 ###Properties
 
 ```javascript
-// a property to get the queue size
-// NOTE that accessors are very slow, use the size method
+/*
+ * a property to get the current iterator position.
+ * NOTE: iterator position is incremented by the next() method.
+ */
+Train.ipos : Number
+
+/*
+ * a property to get the queue size
+ * NOTE: accessors are very slow, use the size method
+ */
 Train.length : Number
 ```
 
