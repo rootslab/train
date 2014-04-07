@@ -1,5 +1,11 @@
-###Train 
+###Train
 [![build status](https://travis-ci.org/rootslab/train.png?branch=master)](https://travis-ci.org/rootslab/train)
+[![NPM version](https://badge.fury.io/js/train.png)](http://badge.fury.io/js/train)
+
+[![NPM](https://nodei.co/npm/train.png?downloads=true&stars=true)](https://nodei.co/npm/train/)
+
+[![NPM](https://nodei.co/npm-dl/train.png)](https://nodei.co/npm/train/)
+
 > Train, an implementation of a ( FIFO ) Queue data structure.
 
 > It uses 2 arrays, to simulate and perform a fast element shift/pop operation, without using the Array#shift() method.
