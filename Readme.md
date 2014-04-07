@@ -1,6 +1,6 @@
 ###Train 
-[![build status](https://travis-ci.org/rootslab/train.png?branch=master)](https://travis-ci.org/rootslab/train) [![NPM version](https://badge.fury.io/js/train.png)](http://badge.fury.io/js/train)
-> The Train module is an implementation of a ( FIFO ) Queue data structure.
+[![build status](https://travis-ci.org/rootslab/train.png?branch=master)](https://travis-ci.org/rootslab/train)
+> Train, an implementation of a ( FIFO ) Queue data structure.
 
 > It uses 2 arrays, to simulate and perform a fast element shift/pop operation, without using the Array#shift() method.
 
@@ -36,16 +36,8 @@ new Train( [ Array elements ] )
 ###Properties
 
 ```javascript
-/*
- * a property to get the current iterator position.
- * NOTE: iterator position is incremented by the next() method.
- */
-Train.ipos : Number
-
-/*
- * a property to get the queue size
- * NOTE: accessors are very slow, use the size method
- */
+// a property to get the queue size
+// NOTE that accessors are very slow, use the size() method
 Train.length : Number
 ```
 
@@ -92,23 +84,27 @@ Train#flush() : Number
 
 /*
  * apply a fn to every element of the queue, like Array#forEach
- * fn will get 2 args : ( Object element, Number index )
+ * fn will get 3 args : ( Object element, Number index, Number qsize )
  */
-Train#forEach( Function fn [, Object scope ] ) : null
+Train#forEach( Function fn [, Object scope ] ) : Train
 
 /*
- * apply a fn to every element of the queue, like Array#forEach
- * fn will get 3 args : ( Object element, Number index, Function done )
- * after that every fn will have called done(), the function callback will be
- * executed ( with an err argument if any has occurred ).
+ * apply a fn to every element of the queue,
+ * fn will get 3 args : ( Object element, Number index, Function done ).
+ * After that every fn will have called done(), the callback will be launched
+ * with an err argument ( if any has occurred ) and a number representing
+ * the total processed/iterated elements in the queue, equal to the queue size
+ * if no error has occurred.
+ * Note: when queue size was 0, the callback will be immediately executed
+ * with args: ( null, 0 ).
  */
-Train#iterate( Function fn [, Object scope, [, Function callback ] ] ) : null
+Train#iterate( Function fn [, Object scope, [, Function callback ] ] ) : Train
 
 ```
 
 ### MIT License
 
-> Copyright (c) 2012 &lt; Guglielmo Ferri : 44gatti@gmail.com &gt;
+> Copyright (c) 2013 &lt; Guglielmo Ferri : 44gatti@gmail.com &gt;
 
 > Permission is hereby granted, free of charge, to any person obtaining
 > a copy of this software and associated documentation files (the
