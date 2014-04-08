@@ -92,7 +92,7 @@ Train#flush() : Number
  * apply a fn to every element of the queue, like Array#forEach
  * fn will get 3 args : ( Object element, Number index, Number qsize )
  * Note : on iteration, the size is fixed to the current queue size,
- * then it is possible to push other elements to the tail,  these added elements
+ * then it is possible to push other elements to the tail, these added elements
  * are not affected by iteration.
  */
 Train#forEach( Function fn [, Object scope ] ) : Train
