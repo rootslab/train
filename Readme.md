@@ -33,7 +33,6 @@ $ npm test
 
 ###Run Benchmarks
 
-
 ```bash
 $ cd train/
 $ npm run-script bench
