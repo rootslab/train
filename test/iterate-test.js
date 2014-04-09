@@ -6,7 +6,7 @@ var log = console.log,
         'Lupus est agnum',
         'Otia et negotia',
         'Cave canem',
-        'Omnes feriunt',
+        'Omnes feriunt, ultima necat',
         'Mitto tibi navem sine poppa sine prora'
     ],
     el = null,

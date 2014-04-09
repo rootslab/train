@@ -8,7 +8,9 @@
 
 > Train, an implementation of a ( FIFO ) Queue data structure.
 
-> It uses 2 arrays, to simulate and perform a fast element shift/pop operation, without using the Array#shift() method.
+> It uses 2 arrays, to simulate and perform a fast element shift/pop operation, without using the Array#shift() method. 
+
+> __Note:__ the performance degradation of _Array#shift_ method is particularly consistent when the array is very long ( with at least ~2^17 items ); it implies that for short lenghts it is still possible to use _Array#shift_ without particular performance degradation.
 
 ###Install
 
@@ -27,6 +29,14 @@ var Train  = require( 'train' );
 ```bash
 $ cd train/
 $ npm test
+```
+
+###Run Benchmarks
+
+
+```bash
+$ cd train/
+$ npm bench
 ```
 
 ###Constructor
