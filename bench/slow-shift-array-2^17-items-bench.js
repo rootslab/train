@@ -21,7 +21,7 @@ for ( ; i--; ) {
     a.push( 1 );
 };
 
-log( '- empty array with #shift() (wait ~ 1 min!)' );
+log( '- empty array with #shift()' );
 
 i = k;
 

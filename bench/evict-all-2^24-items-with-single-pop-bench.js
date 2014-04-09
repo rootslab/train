@@ -23,7 +23,7 @@ for ( ; i--; ) {
     t.push( 1 );
 };
 
-log( '- evicting 2^%d items with %d #shift() from index %d', p, k, 0 );
+log( '- evicting 2^%d items with single #pop() from index %d', p, 0 );
 
 i = k;
 
