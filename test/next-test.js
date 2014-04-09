@@ -54,13 +54,24 @@ while ( true ) {
 }
 assert.equal( el, t.get( 0 ) );
 
-log( '- test next(3) reply, after a queue pop/shift operation.' );
+log( '- check next(3) reply.' );
 el = t.next( 3 );
-t.pop();
+assert.equal( el, arr[ 3 ] );
 
 log( '- check if next() returns correct successor after pop/shift operation.' );
+// same as shift
+t.pop();
 assert.equal( t.next(), arr[ 4 ] );
 
 log( '- check internal iterator index when next() reaches last position, should be 0' );
 el = t.next( 4 );
 assert.equal( t.ipos, 0 );
+
+log( '- check next() correct position after pop() multiple elements.' );
+t.push( [ 'Hic et Nunc', 'Odi et Amo', 'Carpe Diem', 'Alea Iacta Est' ] , true );
+t.next( 7 )
+t.pop( 6 );
+t.next();
+assert.ok( 'Odi et Amo', t.next(), 'something goes wrong with next() iterator!' );
+
+
