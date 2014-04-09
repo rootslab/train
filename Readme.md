@@ -69,6 +69,7 @@ Train#shift() : Object
  * The same as shift, if it was called without argument.
  * if a number k was specified, it returns an array of K elements ( K <= k )
  * If k > queue size, it returns all the elements until the end of queue.
+ * Note: pop(k) elements is faster than execute shift() k times.
  */
 Train#pop( [ Number k ] ) : Object
 

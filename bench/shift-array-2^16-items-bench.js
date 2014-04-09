@@ -13,11 +13,11 @@ var log = console.log
     , etime = 0
     ;
 
-log( '\n- fill Array with 2^%d items', p );
+log( '- fill Array with 2^%d items', p );
 
 i = k;
 
-for ( ; --i; ) {
+for ( ; i--; ) {
     a.push( 1 );
 };
 
@@ -27,7 +27,7 @@ i = k;
 
 stime = Date.now();
 
-for ( ; --i; ) {
+for ( ; i--; ) {
     a.shift();
 };
 

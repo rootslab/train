@@ -14,11 +14,11 @@ var log = console.log
     , etime = 0
     ;
 
-log( '\n- fill Train with 2^%d items', p );
+log( '- fill Train with 2^%d items', p );
 
 i = k;
 
-for ( ; --i; ) {
+for ( ; i--; ) {
     t.push( 1 );
 };
 
@@ -28,7 +28,7 @@ i = k;
 
 stime = Date.now();
 
-for ( ; --i; ) {
+for ( ; i--; ) {
     t.shift();
 };
 

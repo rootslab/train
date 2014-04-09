@@ -14,13 +14,13 @@ var log = console.log
     , etime = 0
     ;
 
-log( '\n- running Train#push( 1 ) 2^%d times', p );
+log( '- running Train#push( 1 ) 2^%d times', p );
 
 i = k;
 
 stime = Date.now();
 
-for ( ; --i; ) {
+for ( ; i--; ) {
     t.push( 1 );
 };
 
