@@ -36,7 +36,7 @@ $ npm test
 
 ```bash
 $ cd train/
-$ npm bench
+$ npm run-script bench
 ```
 
 ###Constructor
