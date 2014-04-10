@@ -10,7 +10,7 @@
 
 > It uses 2 arrays, to simulate and perform fast shift and pop operations without using the Array#shift() method.
 
-> __Note:__ the performance degradation of _Array#shift_ method is particularly consistent when the array is very long ( with at least ~2^17 items on my laptop); it implies that for short lenghts it is still possible to use _Array#shift_ without particular performance degradation.
+> __Note:__ the performance degradation of _Array#shift_ method is particularly consistent when the array is very long, on my laptop the Array#shift bottleneck occurs when I use approximately more than 2^17 items ( test by yourself changing the power values in the benchmarks! ); it implies that, for short lengths, it's still possible to use _Array#shift_ without particular performance degradation.
 
 ###Install
 
