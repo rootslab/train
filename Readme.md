@@ -62,6 +62,8 @@ Train.length : Number
 
 ###Methods
 
+> Arguments within [ ] are optional.
+
 ```javascript
 /*
  * Get an element at certain index.
