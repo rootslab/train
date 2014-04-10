@@ -6,11 +6,16 @@
 
 [![NPM](https://nodei.co/npm-dl/train.png)](https://nodei.co/npm/train/)
 
-> Train, an implementation of a ( FIFO ) Queue data structure.
+> _Train_, an implementation of a (FIFO) Queue data structure.
 
-> It uses 2 arrays, to simulate and perform fast shift and pop operations without using the Array#shift() method.
+> Behind the scenes, it uses 2 arrays, to simulate and perform fast shifting and popping operations, without using the Array#shift() method.
 
-> __Note:__ the performance degradation of _Array#shift_ method is particularly consistent when the array is very long, on my laptop the Array#shift bottleneck occurs when I use approximately more than 2^17 items ( test by yourself changing the power values in the benchmarks! ); it implies that, for short lengths, it's still possible to use _Array#shift_ without particular performance degradation.
+> __Note:__  
+
+>__*Array#shift*__ method shows an __high loss of performances when the array is very long__; for example, on my cheap laptop the bottleneck occurs when I fill an array with more than 2^17 items.
+It implies that for shorter array lengths, is still possible to use _Array#shift_.
+>
+> _**Test by yourself** [launching benchmarks](#run-benchmarks) or manually tuning_ the power value p in this _[bench file](bench/slow-shift-array-2^17-items-bench.js)_.
 
 ###Install
 
@@ -75,7 +80,7 @@ Train#get( [ Number index ] ) : Object
  */
 Train#cget( [ Number index ] ) : Object
 
-/*
+/*ex
  * Evict head element.
  */
 Train#shift() : Object
