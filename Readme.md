@@ -51,81 +51,99 @@ new Train( [ Array elements ] )
 ###Properties
 
 ```javascript
-// a property to get the queue size
-// NOTE that accessors are very slow, use the size() method
+/*
+ * Property to get the queue length.
+ *
+ * NOTE: Accessors are very slow,
+ * use size() method instead.
+ */
 Train.length : Number
 ```
 
 ###Methods
 
 ```javascript
-// get an element at certain index
+/*
+ * Get an element at certain index.
+ */
 Train#get( [ Number index ] ) : Object
 
-// circular get
+/*
+ * Circular get.
+ */
 Train#cget( [ Number index ] ) : Object
 
-// evict head element from the queue
+/*
+ * Evict head element.
+ */
 Train#shift() : Object
 
-/* Evict multiple elements from queue; if a number k was specified,
- * it returns an array of K elements ( K <= k ).
- * If k > Train#size(), it flushes the queue and returns all the
- * elements.
+/* 
+ * Evict multiple elements; if a number k was specified, it returns
+ * an array of K elements, with K <= k. If k > size(), all elements
+ * are returned.
+ *
  * NOTE: #pop(k) elements is faster than execute #shift() * k times.
  */
 Train#pop( [ Number k ] ) : Object
 
-// return current element through the circular iterator
+/*
+ * Return current element through the circular iterator.
+ */
 Train#curr() : Object
 
 /*
 * Get the current element through a circular iterator,
 * incrementing internal counter/position by one; optionally,
-* it is possible to specify the next iterator position/index
+* it is possible to specify the next iterator position / index
 * with a number.
 */
 Train#next( [ Number index ] ) : Object
 
 /*
- * push an element to the end of the queue;
+ * Push an element to the end of the queue.
+ *
  * NOTE: if the first argument was an array,
- * and concat flag was set to true, then
- * every array element will be pushed in the queue.
+ * and concat flag was set to true, then every
+ * array item will be pushed into the queue.
  * It returns the resulting queue length.
  */
-Train#push( Object o [, Boolean concat ] ) : Number
+Train#push( Object obj [, Boolean concat ] ) : Number
 
-// get the queue size
+/*
+ * Get the queue size.
+ */
 Train#size() : Number
 
 /*
- * a method to empty the queue.
- * it returns the number of elements evicted.
+ * Empty the queue. It returns the number of elements evicted.
  */
 Train#flush() : Number
 
 /*
- * apply a fn to every element of the queue, like Array#forEach
- * fn will get 3 args : ( Object element, Number index, Number qsize )
- * Note : on iteration, the size is fixed to the current queue size,
- * then it is possible to push other elements to the tail, these added elements
- * are not affected by iteration.
+ * Apply a fn to every element of the queue, like Array#forEach,
+ * fn will get 3 args:  Object element, Number index, Number qsize.
+ *
+ * NOTE: on iteration, the size is fixed to the current queue size,
+ * then it is possible to push other elements to the tail, these
+ * added elements are not affected by iteration.
  */
 Train#forEach( Function fn [, Object scope ] ) : Train
 
 /*
- * apply a fn to every element of the queue,
- * fn will get 3 args : ( Object element, Number index, Function done ).
+ * Apply a fn to every element of the queue,The fn will get 3 args:
+ * Object element, Number index, Function done.
  * After that every fn will have called done(), the callback will be launched
- * with an err argument ( if any has occurred ) and a number representing
- * the total processed/iterated elements in the queue, equal to the queue size
- * if no error has occurred.
+ * with an err argument ( if any has occurred ) and a number, representing
+ * the total processed / iterated elements in the queue.
+ *
  * Passing true as the last parameter, implies the eviction of the current 
  * item on every iteration, soon after that the fn has called done().
+ *
  * NOTE: when queue size was 0, the callback will be immediately executed
  * with args: ( null, 0 ).
- * NOTE : on iteration, the size is fixed to the current queue size, then
+ *
+ * NOTE: on iteration, the size is fixed to the current queue size, then
  * it is possible to push other elements to the queue tail, these elements
  * are not affected by iteration.
  */
