@@ -14,13 +14,13 @@ var log = console.log,
     t = new Train();
 
 log( '- push 3 elements in the queue.' );
-t.push( arr.slice( 0, 3 ), true );
+t.concat( arr.slice( 0, 3 ) );
 
 log( '- pop head element from the queue.' );
 t.pop();
 
 log( '- push other 3 elements in the queue.' );
-t.push( arr.slice( 3 ), true );
+t.concat( arr.slice( 3 ) );
 
 log( '- test parallel forEach method with some latency.' )
 t.forEach( function ( el, i ) {

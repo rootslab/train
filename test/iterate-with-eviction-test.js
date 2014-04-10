@@ -17,13 +17,13 @@ var log = console.log
     ;
 
 log( '- push 3 elements in the queue.' );
-t.push( arr.slice( 0, 3 ), true );
+t.concat( arr.slice( 0, 3 ) );
 
 log( '- pop head element from the queue.' );
 t.pop();
 
 log( '- push other 3 elements in the queue.' );
-t.push( arr.slice( 3 ), true );
+t.concat( arr.slice( 3 ) );
 
 size = t.size();
 log( '- test iterate parallel and a final callback with some random latency.' )
@@ -41,6 +41,6 @@ t.iterate( function ( el, i, done ) {
     assert.ifError( err );
 /*
  * pass true as the last parameter, for evicting items on
- * every iteration after that fn has called done().
+ * every iteration ( after that fn has called done() ).
  */
 }, true );

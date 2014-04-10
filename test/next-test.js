@@ -17,7 +17,7 @@ var log = console.log
     ;
 
 log( '- push %d elements.', arr.length );
-t.push( arr, true );
+t.concat( arr );
 
 log( '- call next() and check current result.' );
 el = t.next();
@@ -70,7 +70,7 @@ t.next( 5 );
 assert.equal( t.ipos, 0 );
 
 log( '- check next() result after pop() multiple elements.' );
-t.push( [ 'I', 'II', 'III', 'IV', 'V' ], true );
+t.concat( [ 'I', 'II', 'III', 'IV', 'V' ], true );
 t.next( 5 );
 t.pop( 3 );
 assert.equal( t.ipos, 2 );

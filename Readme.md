@@ -103,14 +103,18 @@ Train#curr() : Object
 Train#next( [ Number index ] ) : Object
 
 /*
- * Push an element to the end of the queue.
- *
- * NOTE: if the first argument was an array,
- * and concat flag was set to true, then every
- * array item will be pushed into the queue.
- * It returns the resulting queue length.
+ * Push an object into the queue.
+ * It returns the current number of items in the queue.
  */
-Train#push( Object obj [, Boolean concat ] ) : Number
+Train#push( [ Object object ] ) : Number
+
+/*
+ * Concat an Array to the queue.
+ *
+ * NOTE: the first argument could be also a generic Object.
+ * It returns the current Train instance.
+ */
+Train#concat( [ Array array ] ) : Train
 
 /*
  * Get the queue size.
