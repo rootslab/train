@@ -95,10 +95,10 @@ Train#pop( [ Number k ] ) : Object
 Train#curr() : Object
 
 /*
-* Get the current element through a circular iterator,
-* incrementing internal counter/position by one; optionally,
-* it is possible to specify the next iterator position / index
-* with a number.
+* Get the current element through a circular iterator, also
+* incrementing the iterator counter/position by one; optionally,
+* it is possible to specify with a number the next iterator
+* position / index.
 */
 Train#next( [ Number index ] ) : Object
 
@@ -110,9 +110,9 @@ Train#push( [ Object object ] ) : Number
 
 /*
  * Concat an Array to the queue.
- *
- * NOTE: the first argument could be also a generic Object.
  * It returns the current Train instance.
+ *
+ * NOTE: first argument could also be a generic Object.
  */
 Train#concat( [ Array array ] ) : Train
 
@@ -127,8 +127,8 @@ Train#size() : Number
 Train#flush() : Number
 
 /*
- * Apply a fn to every element of the queue, like Array#forEach,
- * fn will get 3 args:  Object element, Number index, Number qsize.
+ * Apply a fn to every element of the queue, like Array#forEach;
+ * fn will get 3 args: ( Object element, Number index, Number qsize ).
  *
  * NOTE: on iteration, the size is fixed to the current queue size,
  * then it is possible to push other elements to the tail, these
@@ -137,8 +137,8 @@ Train#flush() : Number
 Train#forEach( Function fn [, Object scope ] ) : Train
 
 /*
- * Apply a fn to every element of the queue,The fn will get 3 args:
- * Object element, Number index, Function done.
+ * Apply a fn to every element of the queue;
+ * fn will get 3 args: Object element, Number index, Function done.
  * After that every fn will have called done(), the callback will be launched
  * with an err argument ( if any has occurred ) and a number, representing
  * the total processed / iterated elements in the queue.
@@ -149,9 +149,9 @@ Train#forEach( Function fn [, Object scope ] ) : Train
  * NOTE: when queue size was 0, the callback will be immediately executed
  * with args: ( null, 0 ).
  *
- * NOTE: on iteration, the size is fixed to the current queue size, then
- * it is possible to push other elements to the queue tail, these elements
- * are not affected by iteration.
+ * NOTE: on iteration, the size is fixed to the current queue size,
+ * then it is possible to push other elements to the tail, these
+ * added elements are not affected by iteration.
  */
 Train#iterate( Function fn [, Object scope, [, Function cback [, Boolean evict ] ] ] ) : Train
 
