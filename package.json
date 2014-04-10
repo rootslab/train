@@ -1,6 +1,6 @@
 {
   "name": "train",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "Train, an implementation of a ( FIFO ) Queue data structure. It uses 2 arrays, to simulate and perform a fast element shift operation on its head, without using the Array#shift() method.",
   "homepage": "https://github.com/rootslab/train",
   "repository": {
@@ -9,6 +9,7 @@
   },
   "keywords": [
     "queue",
+    "circular",
     "train",
     "iterate",
     "forEach",
@@ -17,6 +18,7 @@
     "push",
     "next",
     "flush",
+    "get",
     "util"
   ],
   "tags": [],

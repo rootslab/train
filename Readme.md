@@ -60,41 +60,48 @@ Train.length : Number
 
 ```javascript
 // get an element at certain index
-Train#get( Number index ) : Object
+Train#get( [ Number index ] ) : Object
 
-// get the head element from the queue
+// circular get
+Train#cget( [ Number index ] ) : Object
+
+// evict head element from the queue
 Train#shift() : Object
 
-/*
- * The same as shift, if it was called without argument.
- * if a number k was specified, it returns an array of K elements ( K <= k )
- * If k > queue size, it returns all the elements until the end of queue.
- * Note: pop(k) elements is faster than execute shift() k times.
+/* Evict multiple elements from queue; if a number k was specified,
+ * it returns an array of K elements ( K <= k ).
+ * If k > Train#size(), it flushes the queue and returns all the
+ * elements.
+ * NOTE: #pop(k) elements is faster than execute #shift() * k times.
  */
 Train#pop( [ Number k ] ) : Object
 
+// return current element through the circular iterator
+Train#curr() : Object
+
 /*
- * a method to ( circular ) get an element at the specified index,
- * or at current iterator position, starting from the head of queue; then
- * it automatically increments the current iterator position, without
- * evicting the element from the queue.
- */
+* Get the current element through a circular iterator,
+* incrementing internal counter/position by one; optionally,
+* it is possible to specify the next iterator position/index
+* with a number.
+*/
 Train#next( [ Number index ] ) : Object
 
 /*
  * push an element to the end of the queue;
- * optionally if el was an array, and concat flag was true,
- * every element will be pushed in the queue;
- * then it returns the resulting queue length.
+ * NOTE: if the first argument was an array,
+ * and concat flag was set to true, then
+ * every array element will be pushed in the queue.
+ * It returns the resulting queue length.
  */
-Train#push( Object el [, Boolean concat ] ) : Number
+Train#push( Object o [, Boolean concat ] ) : Number
 
-// get the queue size/length
+// get the queue size
 Train#size() : Number
 
 /*
  * a method to empty the queue.
- * it returns the number of elements flushed.
+ * it returns the number of elements evicted.
  */
 Train#flush() : Number
 
@@ -114,10 +121,10 @@ Train#forEach( Function fn [, Object scope ] ) : Train
  * with an err argument ( if any has occurred ) and a number representing
  * the total processed/iterated elements in the queue, equal to the queue size
  * if no error has occurred.
- * Note: when queue size was 0, the callback will be immediately executed
+ * NOTE: when queue size was 0, the callback will be immediately executed
  * with args: ( null, 0 ).
- * Note : on iteration, the size is fixed to the current queue size,
- * then it is possible to push other elements to the tail,  these added elements
+ * NOTE : on iteration, the size is fixed to the current queue size, then
+ * it is possible to push other elements to the queue tail, these elements
  * are not affected by iteration.
  */
 Train#iterate( Function fn [, Object scope, [, Function callback ] ] ) : Train

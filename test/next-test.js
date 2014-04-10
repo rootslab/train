@@ -1,38 +1,45 @@
-var log = console.log,
-    assert = require( 'assert' ),
-    Train = require( '../' ),
-    arr = [ 
+var log = console.log
+    , assert = require( 'assert' )
+    , Train = require( '../' )
+    , arr = [ 
         'Cane Nero',
         'Lupus est agnum',
         'Otia et negotia',
         'Cave canem',
         'Omnes feriunt, ultima necat',
         'Mitto tibi navem sine poppa sine prora'
-    ],
-    el = null,
-    len = 0,
-    size = 0,
-    i = 0,
-    t = new Train();
+    ]
+    , el = null
+    , len = 0
+    , size = 0
+    , i = 0
+    , t = new Train()
+    ;
 
-log( '- push an array of 6 elements to queue, then call next() itertator without arguments.' );
+log( '- push %d elements.', arr.length );
 t.push( arr, true );
-el = t.next();
 
-log( '- test if get(0) returns the head element.' );
+log( '- call next() and check current result.' );
+el = t.next();
 assert.equal( el, t.get( 0 ) );
 
-log( '- test if the next(0) returns the queue head element.' );
-assert.equal( t.next( 0 ), t.get( 0 ) );
+log( '- call next(2) and check current result.' );
+assert.equal( t.next( 2 ), t.get( 1 ) );
 
-log( '- test if the next(2) returns the third element.' );
-assert.equal( t.next( 2 ), t.get( 2 ) );
+log( '- check current iterator position.' );
+assert.equal( t.ipos, 2 );
 
-log( '- test if the next(14) returns the third element.' );
-assert.equal( t.next( 14 ), t.get( 2 ) );
+log( '- check current result.' );
+assert.equal( t.next(), t.get( 2 ) );
+
+log( '- test if the next(%d) returns item at index %d.', 16, ( 14 + 2 ) % 6 );
+t.next( 16 );
+assert.equal( t.next(), t.get( 16 % 6 ) );
+
 
 log( '- test next() circular behaviour.' );
-el = t.next( 0 );
+t.ipos = 0;
+el = t.next();
 i = 0;
 size = t.size();
 
@@ -47,31 +54,24 @@ while ( true ) {
          * test if the iterator points to the head element.
          * after the last next() call.
          */
-        log( ' > index %d: %s === %s ', i, el, t.get( i ) );
+        log( ' >> index %d: %s === %s ', i, el, t.get( i ) );
         assert.equal( el, t.get( i ) );
         break;
     }
 }
 assert.equal( el, t.get( 0 ) );
 
-log( '- check next(3) reply.' );
-el = t.next( 3 );
-assert.equal( el, arr[ 3 ] );
+log( '- check next() result after a shift().' );
+t.shift();
+assert.equal( t.next(), arr[ 1 ] );
 
-log( '- check if next() returns correct successor after pop/shift operation.' );
-// same as shift
-t.pop();
-assert.equal( t.next(), arr[ 4 ] );
-
-log( '- check internal iterator index when next() reaches last position, should be 0' );
-el = t.next( 4 );
+log( '- check iterator when it reaches the last position, should be 0' );
+t.next( 5 );
 assert.equal( t.ipos, 0 );
 
-log( '- check next() correct position after pop() multiple elements.' );
-t.push( [ 'Hic et Nunc', 'Odi et Amo', 'Carpe Diem', 'Alea Iacta Est' ] , true );
-t.next( 7 )
-t.pop( 6 );
-t.next();
-assert.ok( 'Odi et Amo', t.next(), 'something goes wrong with next() iterator!' );
-
-
+log( '- check next() result after pop() multiple elements.' );
+t.push( [ 'I', 'II', 'III', 'IV', 'V' ], true );
+t.next( 5 );
+t.pop( 3 );
+assert.equal( t.ipos, 2 );
+assert.equal( t.curr(), t.get( 2 ) );
