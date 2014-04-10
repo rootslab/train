@@ -8,7 +8,7 @@
 
 > Train, an implementation of a ( FIFO ) Queue data structure.
 
-> It uses 2 arrays, to simulate and perform a fast element shift/pop operation, without using the Array#shift() method. 
+> It uses 2 arrays, to simulate and perform fast shift and pop operations without using the Array#shift() method.
 
 > __Note:__ the performance degradation of _Array#shift_ method is particularly consistent when the array is very long ( with at least ~2^17 items on my laptop); it implies that for short lenghts it is still possible to use _Array#shift_ without particular performance degradation.
 
@@ -121,13 +121,15 @@ Train#forEach( Function fn [, Object scope ] ) : Train
  * with an err argument ( if any has occurred ) and a number representing
  * the total processed/iterated elements in the queue, equal to the queue size
  * if no error has occurred.
+ * Passing true as the last parameter, implies the eviction of the current 
+ * item on every iteration, soon after that the fn has called done().
  * NOTE: when queue size was 0, the callback will be immediately executed
  * with args: ( null, 0 ).
  * NOTE : on iteration, the size is fixed to the current queue size, then
  * it is possible to push other elements to the queue tail, these elements
  * are not affected by iteration.
  */
-Train#iterate( Function fn [, Object scope, [, Function callback ] ] ) : Train
+Train#iterate( Function fn [, Object scope, [, Function cback [, Boolean evict ] ] ] ) : Train
 
 ```
 
