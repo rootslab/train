@@ -80,7 +80,7 @@ Train#get( [ Number index ] ) : Object
  */
 Train#cget( [ Number index ] ) : Object
 
-/*ex
+/*
  * Evict head element.
  */
 Train#shift() : Object
