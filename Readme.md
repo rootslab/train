@@ -210,7 +210,7 @@ Train#xconcat( [ Array array ] ) : Number
  * it will be added to the queue as is, also null, NaN and
  * undefined values.
  */
-Train#melt( [ Array tlist [, Boolean all ] ] ) : Train
+Train#melt( [ Array tlist [, Boolean all ] ] ) : Number
 
 /*
  * Get the queue size.
