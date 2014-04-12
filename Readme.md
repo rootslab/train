@@ -131,6 +131,7 @@ Train#shift() : Object
  * are returned.
  *
  * NOTE: #pop() k elements is faster than executing #shift() * k times.
+ * For popping all elements you could do: Train#pop( Infinity )
  */
 Train#pop( [ Number k ] ) : Object
 
@@ -156,7 +157,7 @@ Train#push( [ Object obj1 [, Object obj2 .. ] ] ) : Number
 
 /*
  * Push one or multiple objects into the queue,
- * Unlike #push, if the addition of elements exceed the
+ * Unlike #push, if the addition of elements exceeds the
  * xlim value, items aren't added but silently dropped.
  * It returns the current number of items in the queue,
  * or -1 if the current arguments/items were dropped.
@@ -170,10 +171,12 @@ Train#xpush( [ Object obj1 [, Object obj2 .. ] ] ) : Number
  * current size, using:
  *
  * var t = Train()
- *     , size = t.qtail.push( .. ) + me.qhead.length - me.hpos
+ *     , size = t.qtail.push( .. ) + t.qhead.length - me.hpos
  *     // or for multiple arguments
- *     , size = t.qtail.apply( t.qtail, [..] ) + me.qhead.length - me.hpos
+ *     , size = t.qtail.apply( t.qtail, [..] ) + t.qhead.length - me.hpos
  *     ;
+ *
+ * See Benchmarks.
  */
 Train#fpush( [ Object obj ] ) : Number
 
@@ -188,13 +191,25 @@ Train#concat( [ Array array ] ) : Train
 /*
  * Concatenate an Array to the queue.
  * Unlike #concat, if the addition of elements, contained in the array,
- * exceed the xlim value, array is silently dropped.
+ * exceeds the xlim value, array is silently dropped.
  * It returns the current number of items in the queue,
  * or -1 if the current array was dropped.
  *
  * NOTE: It accepts a single argument, that could be also a generic Object.
  */
 Train#xconcat( [ Array array ] ) : Number
+
+/*
+ * Melt a list of Objects, preferably Train or Arrays to this queue;
+ * all Train queues will be emptied, all Arrays will be concatenated.
+ * Optionally, if boolean argument 'all' is true, it melts all items
+ * contained in the tlist.
+ * It returns the current Train instance.
+ *
+ * NOTE: If an item is not an instance of Train or Array,
+ * it will be added to the queue as is.
+ */
+Train#melt( [ Array tlist [, Boolean all ] ] ) : Train
 
 /*
  * Get the queue size.
