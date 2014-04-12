@@ -83,7 +83,7 @@ Train.ipos : Number
  * Property that indicates the current head element 
  * position/index in the queue.
  *
- * WARNING: private property, don't change it manually-
+ * WARNING: private property, don't change it manually.
  */
 Train.hpos : Number
 
@@ -162,6 +162,20 @@ Train#push( [ Object obj1 [, Object obj2 .. ] ] ) : Number
  * or -1 if the current arguments/items were dropped.
  */
 Train#xpush( [ Object obj1 [, Object obj2 .. ] ] ) : Number
+
+/*
+ * A slightly faster push, ~15% faster than push.
+ * It is still possible to increase speed ( bypassing function call )
+ * pushing element(s) directly to the tail of the queue and to calculate
+ * current size, using:
+ *
+ * var t = Train()
+ *     , size = t.qtail.push( .. ) + me.qhead.length - me.hpos
+ *     // or for multiple arguments
+ *     , size = t.qtail.apply( t.qtail, [..] ) + me.qhead.length - me.hpos
+ *     ;
+ */
+Train#fpush( [ Object obj ] ) : Number
 
 /*
  * Concatenate an Array to the queue.
