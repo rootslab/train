@@ -1,6 +1,6 @@
 {
   "name": "train",
-  "version": "1.8.2",
+  "version": "2.0.0",
   "description": "Train, an implementation of a ( FIFO ) Queue data structure. Behind the scenes, it uses 2 arrays, to simulate and perform fast shifting and popping operations, without using the Array#shift() method..",
   "homepage": "https://github.com/rootslab/train",
   "repository": {
@@ -27,7 +27,7 @@
     "email": "44gatti@gmail.com"
   },
   "dependencies": {
-    "funny" : ">=1.0.8"
+    "funny" : ">=1.0.10"
     },
   "main": "index",
   "engines": {

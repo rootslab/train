@@ -45,12 +45,12 @@ $ npm run-script bench
 
 ###Constructor
 
-> Create an instance, optionally with an Array of elements. 
+> Create an instance, optionally with an Array of elements and a limit value for the queue size.
 
 ```javascript
-Train( [ Array elements ] )
+Train( [ Array elements [, Number xlim ] ] )
 // or
-new Train( [ Array elements ] )
+new Train( [ Array elements [, Number xlim ] ] )
 ```
 
 ###Properties
@@ -63,6 +63,46 @@ new Train( [ Array elements ] )
  * use size() method instead.
  */
 Train.length : Number
+
+/*
+ * Property to set the queue size limit.
+ *
+ * NOTE: Only #xpush() is affected by this limit.
+ */
+Train.xlim : Number
+
+/*
+ * Property to get current iterator position in the queue.
+ *
+ * NOTE: manually changing this value directly affects the
+ * behaviour of iterator methods like #next() and #curr.
+ */
+Train.ipos : Number
+
+/*
+ * Property that indicates the current head element 
+ * position/index in the queue.
+ *
+ * WARNING: private property, don't change it manually-
+ */
+Train.hpos : Number
+
+
+/*
+ * An array that represents the current head of the queue.
+ *
+ * WARNING: private property, don't change it manually.
+ */
+Train.qhead : Number
+
+
+/*
+ * An array that represents the current tail of queue.
+ *
+ * NOTE: private property, don't change it manually.
+ */
+Train.qtail : Number
+
 ```
 
 ###Methods
@@ -81,7 +121,7 @@ Train#get( [ Number index ] ) : Object
 Train#cget( [ Number index ] ) : Object
 
 /*
- * Evict head element.
+ * Evict the first (head) element from the queue.
  */
 Train#shift() : Object
 
@@ -90,7 +130,7 @@ Train#shift() : Object
  * an array of K elements, with K <= k. If k > size(), all elements
  * are returned.
  *
- * NOTE: #pop(k) elements is faster than execute #shift() * k times.
+ * NOTE: #pop() k elements is faster than executing #shift() * k times.
  */
 Train#pop( [ Number k ] ) : Object
 
@@ -102,24 +142,45 @@ Train#curr() : Object
 /*
 * Get the current element through a circular iterator, also
 * incrementing the iterator counter/position by one; optionally,
-* it is possible to specify with a number the next iterator
-* position / index.
+* it is possible to specify a number as the next iterator
+* position / index in the queue.
 */
 Train#next( [ Number index ] ) : Object
 
 /*
- * Push an object into the queue.
+ * Push one or multiple objects into the queue. it uses
+ * the same signature as Array#push.
  * It returns the current number of items in the queue.
  */
-Train#push( [ Object object ] ) : Number
+Train#push( [ Object obj1 [, Object obj2 .. ] ] ) : Number
 
 /*
- * Concat an Array to the queue.
+ * Push one or multiple objects into the queue,
+ * Unlike #push, if the addition of elements exceed the
+ * xlim value, items aren't added but silently dropped.
+ * It returns the current number of items in the queue,
+ * or -1 if the current arguments/items were dropped.
+ */
+Train#xpush( [ Object obj1 [, Object obj2 .. ] ] ) : Number
+
+/*
+ * Concatenate an Array to the queue.
  * It returns the current Train instance.
  *
- * NOTE: first argument could also be a generic Object.
+ * NOTE: It accepts a single argument, that could be also a generic Object.
  */
 Train#concat( [ Array array ] ) : Train
+
+/*
+ * Concatenate an Array to the queue.
+ * Unlike #concat, if the addition of elements, contained in the array,
+ * exceed the xlim value, array is silently dropped.
+ * It returns the current number of items in the queue,
+ * or -1 if the current array was dropped.
+ *
+ * NOTE: It accepts a single argument, that could be also a generic Object.
+ */
+Train#xconcat( [ Array array ] ) : Number
 
 /*
  * Get the queue size.
@@ -133,7 +194,7 @@ Train#flush() : Number
 
 /*
  * Apply a fn to every element of the queue, like Array#forEach;
- * fn will get 3 args: ( Object element, Number index, Number qsize ).
+ * fn will get 3 arguments: ( Object element, Number index, Number qsize ).
  *
  * NOTE: on iteration, the size is fixed to the current queue size,
  * then it is possible to push other elements to the tail, these
@@ -143,16 +204,16 @@ Train#forEach( Function fn [, Object scope ] ) : Train
 
 /*
  * Apply a fn to every element of the queue;
- * fn will get 3 args: Object element, Number index, Function done.
+ * fn will get 3 arguments: Object element, Number index, Function done.
  * After that every fn will have called done(), the callback will be launched
  * with an err argument ( if any has occurred ) and a number, representing
  * the total processed / iterated elements in the queue.
  *
- * Passing true as the last parameter, implies the eviction of the current 
+ * Passing true as the last parameter, implies the eviction of the current
  * item on every iteration, soon after that the fn has called done().
  *
- * NOTE: when queue size was 0, the callback will be immediately executed
- * with args: ( null, 0 ).
+ * NOTE: when queue size is 0, the callback will be immediately executed
+ * with arguments: ( null, 0 ).
  *
  * NOTE: on iteration, the size is fixed to the current queue size,
  * then it is possible to push other elements to the tail, these
