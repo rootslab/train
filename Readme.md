@@ -204,10 +204,11 @@ Train#xconcat( [ Array array ] ) : Number
  * all Train queues will be emptied, all Arrays will be concatenated.
  * Optionally, if boolean argument 'all' is true, it melts all items
  * contained in the tlist.
- * It returns the current Train instance.
+ * It returns the current queue size.
  *
  * NOTE: If an item is not an instance of Train or Array,
- * it will be added to the queue as is.
+ * it will be added to the queue as is, also null, NaN and
+ * undefined values.
  */
 Train#melt( [ Array tlist [, Boolean all ] ] ) : Train
 
