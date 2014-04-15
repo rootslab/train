@@ -67,7 +67,7 @@ Train.length : Number
 /*
  * Property to set the queue size limit.
  *
- * NOTE: Only #xpush() is affected by this limit.
+ * NOTE: Only #xpush(), #xconcat() are affected by this limit.
  */
 Train.xlim : Number
 
@@ -133,7 +133,7 @@ Train#shift() : Object
  * NOTE: #pop() k elements is faster than executing #shift() * k times.
  * For popping all elements you could do: Train#pop( Infinity )
  */
-Train#pop( [ Number k ] ) : Object
+Train#pop( [ Number k ] ) : Array
 
 /*
  * Return current element through the circular iterator.
