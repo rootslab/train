@@ -182,7 +182,7 @@ Train#fpush( [ Object obj ] ) : Number
  * Concatenate an Array to the queue.
  * It returns the current Train instance.
  *
- * NOTE: It accepts a single argument, that could be also a generic Object.
+ * NOTE: It accepts a single argument, that could be also a generic element.
  */
 Train#concat( [ Array array ] ) : Train
 
@@ -193,20 +193,20 @@ Train#concat( [ Array array ] ) : Train
  * It returns the current number of items in the queue,
  * or -1 if the current array was dropped.
  *
- * NOTE: It accepts a single argument, that could be also a generic Object.
+ * NOTE: It accepts a single argument, that could be also a generic element.
  */
 Train#xconcat( [ Array array ] ) : Number
 
 /*
  * Melt a list of Objects, preferably Train or Arrays to this queue;
  * all Train queues will be emptied, all Arrays will be concatenated.
- * Optionally, if boolean argument 'all' is true, it melts all items
- * contained in the tlist.
+ * Optionally, when boolean 'all' is true, it melts all items contained
+ * in the tlist argument.
  * It returns the current queue size.
  *
- * NOTE: If an item is not an instance of Train or Array,
- * it will be added to the queue as is, also null, NaN and
- * undefined values.
+ * NOTE: When 'all' is set to true, if an item in the tlist is not an
+ * instance of Train or Array, it will be added to the queue as is, 
+ * also null, NaN and undefined values.
  */
 Train#melt( [ Array tlist [, Boolean all ] ] ) : Number
 
