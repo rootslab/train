@@ -87,14 +87,12 @@ Train.ipos : Number
  */
 Train.hpos : Number
 
-
 /*
  * An array that represents the current head of the queue.
  *
  * WARNING: private property, don't change it manually.
  */
 Train.qhead : Number
-
 
 /*
  * An array that represents the current tail of queue.
