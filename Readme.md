@@ -163,7 +163,7 @@ Train#push( [ Object obj1 [, Object obj2 .. ] ] ) : Number
 Train#xpush( [ Object obj1 [, Object obj2 .. ] ] ) : Number
 
 /*
- * A slightly faster push, ~15% faster than push.
+ * A slightly faster push, ~15% than #push.
  * It is still possible to increase speed ( bypassing function call )
  * pushing element(s) directly to the tail of the queue and to calculate
  * current size, using:
