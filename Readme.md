@@ -137,8 +137,7 @@ Train#pop( [ Number k ] ) : Array
  * Slice a portion of train queue into a new array,
  * from begin to end index.
  *
- * NOTE:
- * Usage is the same as Array#slice method; it
+ * NOTE: Usage is the same as Array#slice method; it
  * accepts negative indexes and numbers as strings.
  */
 Train#slice( [ begin [, end ] ] ) : Array
