@@ -25,11 +25,11 @@ t.concat( arr.slice( 3 ) );
 log( '- test iterate parallel and a final callback with some random latency.' )
 t.iterate( function ( el, i, done ) {
     // test if elements match with original ones
-    setTimeout( function () {
+    setTimeout( function ( scope ) {
         assert( el, arr[ i + 1 ] );
         log( ' > index %d: %s === %s ', i, el, arr[ i + 1 ] );
         done();
-    }, 800 * i * Math.random() );
+    }, 800 * i * Math.random(), this );
 }, t, function ( err ) {
     log( ' > test OK: I\'m the final callback!' );
     assert.ifError( err );
