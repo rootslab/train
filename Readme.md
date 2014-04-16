@@ -250,7 +250,7 @@ Train#forEach( Function fn [, Object scope ] ) : Train
  *
  * If boolean "evict" was set to true, after the last fn call to done(),
  * the queue will be flushed.
- */
+ *
  * NOTE: when queue size is 0, the callback will be immediately executed
  * with arguments: ( null, 0 ).
  *
