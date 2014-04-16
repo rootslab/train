@@ -225,9 +225,11 @@ Train#melt( [ Array tlist [, Boolean all ] ] ) : Number
 Train#size() : Number
 
 /*
- * Empty the queue. It returns the number of elements evicted.
+ * Empty the queue for default.
+ * If bool is set to false, no action will be done.
+ * It returns the number of elements evicted.
  */
-Train#flush() : Number
+Train#flush( [ Boolean bool ]) : Number
 
 /*
  * Apply a fn to every element of the queue, like Array#forEach;
@@ -246,9 +248,9 @@ Train#forEach( Function fn [, Object scope ] ) : Train
  * with an err argument ( if any has occurred ) and a number, representing
  * the total processed / iterated elements in the queue.
  *
- * Passing true as the last parameter, implies the eviction of the current
- * item on every iteration, soon after that the fn has called done().
- *
+ * If boolean "evict" was set to true, after the last fn call to done(),
+ * the queue will be flushed.
+ */
  * NOTE: when queue size is 0, the callback will be immediately executed
  * with arguments: ( null, 0 ).
  *

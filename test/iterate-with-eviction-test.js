@@ -27,20 +27,21 @@ t.concat( arr.slice( 3 ) );
 
 size = t.size();
 log( '- test iterate parallel and a final callback with some random latency.' )
+log( size )
 t.iterate( function ( el, i, done ) {
     // test if elements match with original ones
     setTimeout( function () {
-        assert( el, arr[ i + 1 ] );
         log( ' > index %d: %s === %s ', i, el, arr[ i + 1 ] );
+        ++evict;
         done();
-        log( '- check if item was evicted, current length is %d', t.size() );
-        assert.equal( size, ++evict + t.size(), 'something goes wrong with xiterate, ' + evict + 'items evicted.' );
-    }, 800 * i * Math.random() );
+    }, 2000 * i * Math.random() );
 }, t, function ( err ) {
     log( ' > test OK: I\'m the final callback!' );
     assert.ifError( err );
+    assert.equal( evict, size, 'something goes wrong with iterate, ' + evict + ' item(s) evicted.' );
+    assert.equal( 0, t.size(), 'something goes wrong with iterate, ' + evict + ' item(s) evicted.' );
 /*
- * pass true as the last parameter, for evicting items on
- * every iteration ( after that fn has called done() ).
+ * pass true as the last parameter, for evicting all item,
+ * after that the last fn has called done().
  */
 }, true );
