@@ -119,8 +119,8 @@ Train#get( [ Number index ] ) : Object
 Train#cget( [ Number index ] ) : Object
 
 /*
- * Return the index of an element in the queue,
- * optionally starting the search from an offset index.
+ * Return the index of an element in the queue, optionally
+ * starting the search from an offset index.
  * If element was not found, it returns -1.
  */
 Train#indexOf( Object el [, Number offset ] ) : Object
