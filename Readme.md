@@ -119,6 +119,13 @@ Train#get( [ Number index ] ) : Object
 Train#cget( [ Number index ] ) : Object
 
 /*
+ * Return the index of an element in the queue,
+ * optionally starting the search from an offset index.
+ * If element was not found, it returns -1.
+ */
+Train#indexOf( Object el [, Number offset ] ) : Object
+
+/*
  * Evict the first (head) element from the queue.
  */
 Train#shift() : Object
@@ -258,7 +265,7 @@ Train#forEach( Function fn [, Object scope ] ) : Train
  * then it is possible to push other elements to the tail, these
  * added elements are not affected by iteration.
  */
-Train#iterate( Function fn [, Object scope, [, Function cback [, Boolean evict ] ] ] ) : Train
+Train#iterate( Function fn [, Object scope [, Function cback [, Boolean evict ] ] ] ) : Train
 
 ```
 
