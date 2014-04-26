@@ -109,7 +109,7 @@ Train.qtail : Number
 
 ```javascript
 /*
- * Get an element at certain index.
+ * Get an element at a certain index.
  */
 Train#get( [ Number index ] ) : Object
 
@@ -131,12 +131,14 @@ Train#indexOf( Object el [, Number offset ] ) : Object
 Train#shift() : Object
 
 /* 
- * Evict multiple elements; if a number k was specified, it returns
+ * Evict one or multiple elements, if a number k was specified, it returns
  * an array of K elements, with K <= k. If k > size(), all elements
  * are returned.
  *
- * NOTE: #pop() k elements is faster than executing #shift() * k times.
- * For popping all elements you could do: Train#pop( Infinity )
+ * NOTE: #pop() a single element doesn't return an Array but the element
+ * itself, as for #shift.
+ * NOTE: #pop(k) elements is faster than executing #shift() * k times.
+ * NOTE: For popping all elements you could do: Train#pop( Infinity )
  */
 Train#pop( [ Number k ] ) : Array
 
@@ -165,7 +167,7 @@ Train#next( [ Number index ] ) : Object
 /*
  * Push one or multiple objects into the queue. it uses
  * the same signature as Array#push.
- * It returns the current number of items in the queue.
+ * It returns the current number of items.
  */
 Train#push( [ Object obj1 [, Object obj2 .. ] ] ) : Number
 
@@ -236,7 +238,7 @@ Train#size() : Number
  * If bool is set to false, no action will be done.
  * It returns the number of elements evicted.
  */
-Train#flush( [ Boolean bool ]) : Number
+Train#flush( [ Boolean bool ] ) : Number
 
 /*
  * Apply a fn to every element of the queue, like Array#forEach;

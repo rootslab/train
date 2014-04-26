@@ -25,8 +25,7 @@ log( '- check #indexOf( el ) results after #pop el, every call should return -1.
 i = 0;
 
 for ( ; t.length; ++i ) {
-    log( i, t.pop(), t.length )
-    //t.pop();
+    t.pop();
     assert.equal( t.indexOf( i ), -1, 'expected -1, got: ' + t.indexOf( i ) );
 };
 
