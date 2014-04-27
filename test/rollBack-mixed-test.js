@@ -20,19 +20,16 @@ for ( ; ~i; a[ i ] = i-- );
 qhead.push.apply( qhead, a.slice( 0, hlen ) );
 qtail.push.apply( qtail, a.slice( hlen ) );
 
-log( '- queue filled with %d items. %d in t.qhead, %d in t.qtail', a.length, hlen, a.length - hlen );
+log( '- queue filled with %d items. %d in t.qhead, %d in t.qtail.', a.length, hlen, a.length - hlen );
 
 // move head position
 t.hpos = offset;
 
 log( '- moved head position to index %d.', offset );
 
-// start rollup
 t.rollUp();
 
-log( '- rollUp started.' );
-
-// check roll property
+log( '- #rollUp started, check roll property, should be true.' );
 assert.equal( t.roll, true );
 
 log( '- pop %d items reaching the end of t.qhead, then perform a single shift.', offset );

@@ -20,19 +20,16 @@ for ( ; ~i; a[ i ] = i-- );
 qhead.push.apply( qhead, a.slice( 0, hlen ) );
 qtail.push.apply( qtail, a.slice( hlen ) );
 
-log( '- queue filled with %d items. %d in t.qhead, %d in t.qtail', a.length, hlen, a.length - hlen );
+log( '- queue filled with %d items. %d in t.qhead, %d in t.qtail.', a.length, hlen, a.length - hlen );
 
 // move head position
 t.hpos = offset;
 
 log( '- moved head position to index %d.', offset );
 
-// start rollup
 t.rollUp();
 
-log( '- rollUp started.' );
-
-// check roll property
+log( '- #rollUp started, check roll property, should be true.' );
 assert.equal( t.roll, true );
 
 // pop and move head position to the end
@@ -61,63 +58,59 @@ log( '- check items in the roll queue.' );
 // check qroll result
 assert.deepEqual( t.qroll, a.slice( offset ) );
 
-log( '- rollBack( true ) queue, re-enables roll.' );
-
+log( '- now #rollBack(true), check if roll is enabled.' );
 // roll back and re-enable roll
 t.rollBack( true );
 
 assert.equal( t.roll, true );
 
-log( '- check items in qhead.' );
-
-// check qhead
+log( '- check %d items in qhead.', t.qhead.length );
 assert.deepEqual( t.qhead, a.slice( offset ) );
 
-// fill tail with some elements
+log( '- fill tail with %d elements.', offset );
 t.qtail.push.apply( t.qtail, a.slice( 0, offset ) );
 
 // l > hlen && ! qroll.length
 // pop qhead.length + 2 elements
+log( '- pop(%d) (qhead.length + 2) elements from qhead.', t.qhead.length + 2 );
 t.pop( t.qhead.length + 2 );
 
-// check lengths
+log( '- check qhead and qroll lengths, should be %d and %d.', offset -2, a.length - offset + 2 );
 assert.equal( t.qhead.length, offset - 2 );
 assert.equal( t.qroll.length, a.length - offset + 2 );
 
-// check qroll result
+log( '- deep check %d qroll items.', t.qroll.length );
 assert.deepEqual( t.qroll, a.slice( offset ).concat( a.slice( 0, offset - 2 ) ) );
 
 // l <= hlen
-
-// pop qhead.length elements
+log( '- pop(%d) (qhead.length) elements.', t.qhead.length );
 t.pop( t.qhead.length );
 
-// roll back
+log( '- now #rollBack().' );
 t.rollBack();
 
-// check length
+log( '- check qhead length after rollback, should be %d.', a.length );
 assert.equal( t.qhead.length, a.length );
 
-// check qroll result
+log( '- deep check qhead items after rollback.' );
 assert.deepEqual( t.qhead, a.slice( offset ).concat( a.slice( 0, offset ) ) );
 
-// fill tail with some elements
+log( '- fill tail with %d elements.', offset );
 t.qtail.push.apply( t.qtail, a.slice( 0, offset ) );
 
-// enable roll
+log( '- re-enable roll with #rollUp()' );
 t.rollUp();
 
 // l > hlen && ! qroll.length
-
-// pop qhead.length + 1 elements
+log( '- pop qhead.length + 1 (%d) elements from qhead.', t.qhead.length + 1 );
 t.pop( t.qhead.length + 1 );
 
 // l > hlen && qroll.length
-
-// pop qhead.length + 1 elements
+log( '- pop qhead.length + 1 (%d) elements from qhead.', t.qhead.length + 1 );
 t.pop( t.qhead.length + 1 );
 
+log( '- now #rollBack().' );
 t.rollBack();
 
-// check qroll result
+log( '- deep check %d qhead items.', t.qhead.length );
 assert.deepEqual( t.qhead, a.slice( offset ).concat( a.slice( 0, offset ) ).concat( a.slice( 0, offset ) ) );

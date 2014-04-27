@@ -131,14 +131,14 @@ Train#indexOf( Object el [, Number offset ] ) : Object
 Train#shift() : Object
 
 /* 
- * Evict one or multiple elements, if a number k was specified, it returns
- * an array of K elements, with K <= k. If k > size(), all elements
- * are returned.
+ * Evict one or multiple elements, if a number k was specified,
+ * it returns an array of K elements, with K <= k.
+ * If k > size(), all elements are returned.
  *
- * NOTE: #pop() a single element doesn't return an Array but the element
- * itself, as for #shift.
+ * NOTE: #pop() a single element doesn't return an Array but
+ * the element itself, as for #shift.
  * NOTE: #pop(k) elements is faster than executing #shift() * k times.
- * NOTE: For popping all elements you could do: Train#pop( Infinity )
+ * NOTE: For popping all elements you could also do Train#pop( Infinity )
  */
 Train#pop( [ Number k ] ) : Array
 

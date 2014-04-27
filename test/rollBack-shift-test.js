@@ -20,16 +20,18 @@ for ( ; ~i; a[ i ] = i-- );
 qhead.push.apply( qhead, a.slice( 0, hlen ) );
 qtail.push.apply( qtail, a.slice( hlen ) );
 
-// move head position
+log( '- queue filled with %d items. %d in t.qhead, %d in t.qtail.', a.length, hlen, a.length - hlen );
+
 t.hpos = offset;
 
-// start rollup
+log( '- moved head position to index %d.', offset );
+
 t.rollUp();
 
-// check roll property
+log( '- #rollUp started, check roll property, should be %s.', true );
 assert.equal( t.roll, true );
 
-// shift to the end of head array to force internal swapping
+log( '- %d #shift() to force internal qhead<->qtail swapping.', qtail.length - offset );
 i = offset;
 for ( ; i < qtail.length; ++i, t.shift() );
 
@@ -38,24 +40,24 @@ qhead = t.qhead;
 qtail = t.qtail;
 qroll = t.qroll;
 
-// check lengths
+log( '- check qhead qtail and qroll lengths, should be %d, %d, %d.', tlen, 0, hlen - offset );
 assert.equal( qhead.length, tlen );
 assert.equal( qtail.length, 0 );
 assert.equal( qroll.length, hlen - offset );
 
-// check qhead elements
+log( '- deep check %d qhead elements.', qhead.length );
 assert.deepEqual( qhead, a.slice( hlen ) );
 
-// check qroll elements
+log( '- deep check %d qroll elements.', qroll.length );
 assert.deepEqual( qroll, a.slice( offset, hlen ) );
 
-// roll position should be 0
+log( '- check roll position, should be %d', 0 );
 assert.equal( t.rpos, 0 );
 
-// re-fill qtail
+log( '- push %d items to qtail', offset );
 qtail.push.apply( qtail, a.slice( 0, offset ) );
 
-// shift to the end of head array to force internal swapping
+log( '- %d #shift() to force internal qhead<->qtail swapping.', qhead.length );
 i = 0;
 for ( ; i < qhead.length; ++i, t.shift() );
 
@@ -64,24 +66,24 @@ qhead = t.qhead;
 qtail = t.qtail;
 qroll = t.qroll;
 
-// check lengths
+log( '- check qhead qtail and qroll lengths, should be %d, %d, %d.', offset, 0, l - offset + 1 );
 assert.equal( qhead.length, offset );
 assert.equal( qtail.length, 0 );
 assert.equal( qroll.length, l - offset + 1 );
 
-// check qhead elements
+log( '- deep check %d qhead elements.', qhead.length );
 assert.deepEqual( qhead, a.slice( 0, offset ) );
 
-// check qroll elements
+log( '- deep check %d qroll elements.', qroll.length );
 assert.deepEqual( qroll, a.slice( offset ) );
 
-// roll position should be 0
+log( '- check roll position, should be %d', 0 );
 assert.equal( t.rpos, 0 );
 
-// shift to a middle position of head array
+log( '- %d #shift() to a middle position of head array.', qhead.length >> 1 );
 t.hpos = qhead.length >> 1;
 
-// roll back
+log( '- now #rollBack().' );
 t.rollBack();
 
 // update shortcuts after rollback swapping
@@ -89,15 +91,17 @@ qhead = t.qhead;
 qtail = t.qtail;
 qroll = t.qroll;
 
-// check lengths
+log( '- check qtail and qroll lengths, should be %d, %d.', 0, 0 );
 assert.equal( qtail.length, 0 );
 assert.equal( qroll.length, 0 );
 
+log( '- check roll property, should be %s.', false );
 assert.equal( t.roll, false );
+log( '- check head position, should be %s.', 0 );
 assert.equal( t.hpos, 0 );
 
-// check qroll elements
+log( '- deep check %d qhead elements.', qhead.length );
 assert.deepEqual( qhead, a.slice( offset ).concat( a.slice( 0, offset ) ) );
 
-// check iterator position
+log( '- check the iterator position, should be %d.', a.length - offset );
 assert.equal( t.ipos, a.length - offset );
