@@ -6,16 +6,17 @@
 
 [![NPM](https://nodei.co/npm-dl/train.png)](https://nodei.co/npm/train/)
 
-> _Train_, a fast (FIFO) Queue with rollback mechanism.
+> **_Train_**, a fast (FIFO) __Queue__ with __rollback__ mechanism.
 
 > Behind the scenes, it uses 2 arrays, to simulate and perform fast shifting and popping operations, without using the Array#shift() method.
 
 > __Note:__  
-
->__*Array#shift*__ method shows an __high loss of performances when the array is very long__; for example, on my cheap laptop the bottleneck occurs when I fill an array with more than 2^17 items.
+>__*Array#shift*__ method shows an __high loss of performances when the array is very long__; for example, on my laptop the bottleneck occurs when I fill an array with more than 2^17 items.
 It implies that for shorter array lengths, is still possible to use _Array#shift_.
 >
-> _**Test by yourself** [launching benchmarks](#run-benchmarks) or manually tuning_ the power value p in this _[bench file](bench/slow-shift-array-2^17-items-bench.js)_.
+> _**Test** by yourself **[launching benchmarks](#run-benchmarks) or manually tuning**_ the power value p in this **_[bench file](bench/slow-shift-array-2^17-items-bench.js)_**.
+
+> If you need a simple (LIFO) __Stack__, try __[Peela](https://github.com/rootslab/peela)__.
 
 ###Install
 
@@ -83,23 +84,47 @@ Train.ipos : Number
  * Property that indicates the current head element 
  * position/index in the queue.
  *
- * WARNING: private property, don't change it manually.
+ * WARNING: private property, don't mess with it.
  */
 Train.hpos : Number
 
 /*
+ * Property that indicates the current roll position/index
+ * in the head queue.
+ *
+ * WARNING: private property, don't mess with it.
+ */
+Train.rpos : Number
+
+/*
+ * Property that indicates if the mechanism of rolling up
+ * is enabled or not. It is set by #rollUp() and unset by
+ * #rollBack().
+ *
+ * WARNING: private property, don't mess with it.
+ */
+Train.roll : Boolean
+
+/*
  * An array that represents the current head of the queue.
  *
- * WARNING: private property, don't change it manually.
+ * WARNING: private property, don't mess with it.
  */
-Train.qhead : Number
+Train.qhead : Array
 
 /*
  * An array that represents the current tail of queue.
  *
- * NOTE: private property, don't change it manually.
+ * NOTE: private property, don't mess with it.
  */
-Train.qtail : Number
+Train.qtail : Array
+
+/*
+ * An array for rollback mechanism.
+ *
+ * NOTE: private property, don't mess with it.
+ */
+Train.qroll : Array
 
 ```
 
@@ -152,14 +177,18 @@ Train#pop( [ Number k ] ) : Array
 Train#slice( [ Number begin [, Number end ] ] ) : Array
 
 /*
- * Start rolling up, from now, all items evicted from the queue,
- * could be restored.
+ * Start rolling up.
+ * From now, all items evicted from the queue could be
+ * restored, executing #rollBack().
  * It returns the current Train instance.
+ *
+ * NOTE: For now, there is no implemented mechanism, to
+ * directly limit the roll queue size.
  */
 Train#rollUp() : Train
 
 /*
- * Do rollback, previously evicted items are restored
+ * Do rollback; previously evicted items are restored
  * to the head of queue. Optionally, it is possible to
  * re-enable rollUp mechanism after the rollback, passing
  * a true argument.
