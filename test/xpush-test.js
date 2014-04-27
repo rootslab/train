@@ -7,7 +7,7 @@ var log = console.log
     , v = null
     ;
 
-log( '- test queue with xlim argument: Train( null, %d).', xlim );
+log( '- test queue with xlim argument: Train(null, %d).', xlim );
 log( '- check value of Train.xlim property, should be %d.', xlim );
 assert( t.xlim, xlim );
 

@@ -20,13 +20,13 @@ for ( ; i < alen; ++i ) {
 };
 
 
-log( '- check #indexOf( el ) results after #pop el, every call sholud return -1. (%d tests)', t.length );
+log( '- check #indexOf( el ) results after #pop el, every call should return -1. (%d tests)', t.length );
 
 i = 0;
 
 for ( ; t.length; ++i ) {
     t.pop();
-    assert.equal( t.indexOf( i ), -1, 'expected -a, got: ' + t.indexOf( i ) );
+    assert.equal( t.indexOf( i ), -1, 'expected -1, got: ' + t.indexOf( i ) );
 };
 
 
