@@ -6,7 +6,7 @@
 
 [![NPM](https://nodei.co/npm-dl/train.png)](https://nodei.co/npm/train/)
 
-> _Train_, an implementation of a (FIFO) Queue data structure.
+> _Train_, a fast (FIFO) Queue with rollback mechanism.
 
 > Behind the scenes, it uses 2 arrays, to simulate and perform fast shifting and popping operations, without using the Array#shift() method.
 
@@ -149,7 +149,23 @@ Train#pop( [ Number k ] ) : Array
  * NOTE: Usage is the same as Array#slice method; it
  * accepts negative indexes and numbers as strings.
  */
-Train#slice( [ begin [, end ] ] ) : Array
+Train#slice( [ Number begin [, Number end ] ] ) : Array
+
+/*
+ * Start rolling up, from now, all items evicted from the queue,
+ * could be restored.
+ * It returns the current Train instance.
+ */
+Train#rollUp() : Train
+
+/*
+ * Do rollback, previously evicted items are restored
+ * to the head of queue. Optionally, it is possible to
+ * re-enable rollUp mechanism after the rollback, passing
+ * a true argument.
+ * It returns the current Train instance.
+ */
+Train#rollBack( [ Boolean rollUp ] ) : Train
 
 /*
  * Return current element through the circular iterator.
