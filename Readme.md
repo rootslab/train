@@ -99,7 +99,7 @@ Train.rpos : Number
 /*
  * Property that indicates if the mechanism of rolling up
  * is enabled or not. It is set by #rollUp() and unset by
- * #rollBack().
+ * #rollBack() or #rollUp( false ).
  *
  * WARNING: private property, don't mess with it.
  */
@@ -180,12 +180,13 @@ Train#slice( [ Number begin [, Number end ] ] ) : Array
  * Start rolling up.
  * From now, all items evicted from the queue could be
  * restored, executing #rollBack().
+ * Disable rollUp passing false.
  * It returns the current Train instance.
  *
  * NOTE: For now, there is no implemented mechanism, to
  * directly limit the roll queue size.
  */
-Train#rollUp() : Train
+Train#rollUp( [ Boolean on ] ) : Train
 
 /*
  * Do rollback; previously evicted items are restored
