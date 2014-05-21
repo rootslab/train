@@ -27,7 +27,7 @@ t.concat( arr.slice( 3 ) );
 
 size = t.size();
 log( '- test iterate parallel and a final callback with some random latency.' )
-log( size )
+
 t.iterate( function ( el, i, done ) {
     // test if elements match with original ones
     setTimeout( function () {
