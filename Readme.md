@@ -12,9 +12,8 @@
 > Behind the scenes, it uses 2 arrays, to simulate and perform fast shifting and popping operations, without using the Array#shift() method.
 
 > __Note:__  
->__*Array#shift*__ method shows an __high loss of performances when the array is very long__; for example, on my laptop the bottleneck occurs when I fill an array with more than 2^17 items.
-It implies that for shorter array lengths, is still possible to use _Array#shift_.
->
+>__*Array#shift*__ method shows an __high loss of performances when the array is very long__; for example, on my laptop the bottleneck occurs when I fill an array with more than 2^17 items. It implies that for shorter array lengths, is still possible to use _Array#shift_.
+
 > _**Test** by yourself **[launching benchmarks](#run-benchmarks) or manually tuning**_ the power value p in this **_[bench file](bench/slow-shift-array-2^17-items-bench.js)_**.
 
 > If you need a simple (LIFO) __Stack__, try __[Peela](https://github.com/rootslab/peela)__.
