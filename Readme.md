@@ -1,6 +1,7 @@
 ###Train
 [![build status](https://travis-ci.org/rootslab/train.png?branch=master)](https://travis-ci.org/rootslab/train)
 [![NPM version](https://badge.fury.io/js/train.png)](http://badge.fury.io/js/train)
+[![build status](https://david-dm.org/rootslab/train.png)](https://david-dm.org/rootslab/train)
 
 [![NPM](https://nodei.co/npm/train.png?downloads=true&stars=true)](https://nodei.co/npm/train/)
 

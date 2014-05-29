@@ -63,7 +63,7 @@ log( '- check items in the roll queue.' );
 // check qroll result
 assert.deepEqual( t.qroll, a.slice( offset ) );
 
-log( '- rollBack() queue.' );
+log( '- #rollBack() queue.' );
 t.rollBack();
 
 log( '- check qhead items.' );
@@ -76,3 +76,11 @@ assert.equal( t.qtail.length, 0 );
 assert.equal( t.qroll.length, 0 );
 assert.equal( t.hpos, 0 );
 assert.equal( t.roll, false );
+
+log( '- check #rollback() with roll disabled, no concatenation will be done.' );
+// push an element to empty qroll queue
+t.qroll.push( 444 );
+// do rollback
+t.rollBack();
+
+assert.ok( t.get( 0 ) !== 444 );
