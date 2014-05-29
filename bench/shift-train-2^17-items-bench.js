@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var log = console.log
      , print = function ( ms, n ) {
         var avg = 1000 * n / ms;
