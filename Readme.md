@@ -5,7 +5,6 @@
 [![NPM VERSION](http://img.shields.io/npm/v/train.svg)](https://www.npmjs.org/package/train)
 [![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/train.svg)](http://travis-ci.org/rootslab/train)
 [![BUILD STATUS](http://img.shields.io/david/rootslab/train.svg)](https://david-dm.org/rootslab/train)
-[![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/rootslab/spade.svg)](https://david-dm.org/rootslab/spade#info=devDependencies)
 
 [![NPM GRAPH1](https://nodei.co/npm-dl/train.png)](https://nodei.co/npm/train/)
 
