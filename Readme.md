@@ -1,11 +1,20 @@
 ###Train
-[![build status](https://travis-ci.org/rootslab/train.png?branch=master)](https://travis-ci.org/rootslab/train)
-[![NPM version](https://badge.fury.io/js/train.png)](http://badge.fury.io/js/train)
-[![build status](https://david-dm.org/rootslab/train.png)](https://david-dm.org/rootslab/train)
 
-[![NPM](https://nodei.co/npm/train.png?downloads=true&stars=true)](https://nodei.co/npm/train/)
+[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rootslab/train#mit-license)
 
-[![NPM](https://nodei.co/npm-dl/train.png)](https://nodei.co/npm/train/)
+[![NPM VERSION](http://img.shields.io/npm/v/train.svg)](https://www.npmjs.org/package/train)
+[![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/train.svg)](http://travis-ci.org/rootslab/train)
+[![BUILD STATUS](http://img.shields.io/david/rootslab/train.svg)](https://david-dm.org/rootslab/train)
+[![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/rootslab/spade.svg)](https://david-dm.org/rootslab/spade#info=devDependencies)
+
+[![NPM GRAPH1](https://nodei.co/npm-dl/train.png)](https://nodei.co/npm/train/)
+
+[![GITHUB tag](http://img.shields.io/github/tag/rootslab/train.svg)](https://github.com/rootslab/train/tags)
+[![ISSUES](http://img.shields.io/github/issues/rootslab/train.svg)](https://github.com/rootslab/train/issues)
+[![GITTIP](http://img.shields.io/gittip/rootslab.svg)](https://www.gittip.com/rootslab/)
+[![NPM DOWNLOADS](http://img.shields.io/npm/dm/train.svg)](http://npm-stat.com/charts.html?package=train)
+
+[![NPM GRAPH2](https://nodei.co/npm/train.png?downloads=true&stars=true)](https://nodei.co/npm/train/)
 
 > **_Train_**, a fast (FIFO) __Queue__ with __rollback__ mechanism.
 
