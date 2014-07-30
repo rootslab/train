@@ -4,13 +4,13 @@ var log = console.log,
     assert = require( 'assert' ),
     Train = require( '../' ),
     arr = [ 
-        'Cane Nero',
-        'Lupus est agnum',
+        'Cane Nero' /** / ,
+       'Lupus est agnum',
         'Otia et negotia',
         'Cave canem',
         'Omnes feriunt, ultima necat',
         'Mitto tibi navem sine poppa sine prora'
-    ],
+    /**/],
     el = null,
     len = 0,
     t = new Train();
