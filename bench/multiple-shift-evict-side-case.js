@@ -4,14 +4,15 @@ var log = console.log
      , print = function ( ms, n ) {
         var avg = 1000 * n / ms;
         log( '- total elements: %d.', n );
-        log( '- elapsed: %d secs.', ( ms / 1000 ).toFixed( 4 ) );
-        log( '- average: %d el/sec.', avg.toFixed( 0 ) );
+        log( '- elapsed: %d secs.', ms / 1000 );
+        log( '- average: %d Mel/sec.', ( avg / 1000 / 1000 ).toFixed( 2 ) );
     }
     , Train = require( '../' )
     , t = new Train()
-    , p = 16
+    , p = 24
     , k = Math.pow( 2, p )
     , i = 0
+    , result = []
     , stime = 0
     , etime = 0
     ;
@@ -24,14 +25,16 @@ for ( ; i--; ) {
     t.push( 1 );
 };
 
-log( '- empty Train with #shift()' );
+log( '- evicting %d items with multiple #shift()', k );
+
+t.qhead.push( 1 );
 
 i = k;
 
 stime = Date.now();
 
 for ( ; i--; ) {
-    t.shift();
+    result.push( t.shift() );
 };
 
 etime = Date.now() - stime;

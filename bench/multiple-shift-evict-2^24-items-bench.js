@@ -5,13 +5,14 @@ var log = console.log
         var avg = 1000 * n / ms;
         log( '- total elements: %d.', n );
         log( '- elapsed: %d secs.', ( ms / 1000 ).toFixed( 4 ) );
-        log( '- average: %d el/sec.', avg.toFixed( 0 ) );
+        log( '- average: %d Mel/sec.', ( avg / 1000 / 1000 ).toFixed( 2 ) );
     }
     , Train = require( '../' )
     , t = new Train()
-    , p = 17
+    , p = 24
     , k = Math.pow( 2, p )
     , i = 0
+    , result = []
     , stime = 0
     , etime = 0
     ;
@@ -24,14 +25,15 @@ for ( ; i--; ) {
     t.push( 1 );
 };
 
-log( '- empty Train with #shift()' );
+log( '- evicting 2^%d items with %d #shift() from index %d', p, k, 0 );
 
 i = k;
 
 stime = Date.now();
 
 for ( ; i--; ) {
-    t.shift();
+    // build an array like with pop()
+    result.push( t.shift() );
 };
 
 etime = Date.now() - stime;

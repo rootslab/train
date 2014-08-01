@@ -1,6 +1,6 @@
 {
   "name": "train",
-  "version": "3.4.1",
+  "version": "4.0.0",
   "description": "Train, a fast ( FIFO ) Queue with a rollback mechanism. Behind the scenes, it uses 2 arrays, to simulate and perform fast shifting and popping operations, without using the Array#shift() method..",
   "homepage": "https://github.com/rootslab/train",
   "repository": {
@@ -33,6 +33,7 @@
     "email": "44gatti@gmail.com"
   },
   "dependencies": {
+    "bolgia" : "=2.6.2"
     },
   "main": "index",
   "engines": {

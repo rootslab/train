@@ -4,8 +4,8 @@ var log = console.log
      , print = function ( ms, n ) {
         var avg = 1000 * n / ms;
         log( '- total elements: %d.', n );
-        log( '- elapsed: %d secs.', ( ms / 1000 ).toFixed( 4 ) );
-        log( '- average: %d el/sec.', avg.toFixed( 0 ) );
+        log( '- elapsed: %d secs.', ms / 1000 );
+        log( '- average: %d Mel/sec.', ( avg / 1000 / 1000 ).toFixed( 2 ) );
     }
     , Train = require( '../' )
     , t = new Train()
@@ -25,16 +25,15 @@ for ( ; i--; ) {
     t.push( 1 );
 };
 
-log( '- evicting 2^%d items with %d #shift() from index %d', p, k, 0 );
+log( '- evicting %d items with single #pop()', k );
+
+t.qhead.push( 1 );
 
 i = k;
 
 stime = Date.now();
 
-for ( ; i--; ) {
-    // build an array like with pop()
-    result.push( t.shift() );
-};
+result = t.pop( k );
 
 etime = Date.now() - stime;
 

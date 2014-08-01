@@ -52,15 +52,33 @@ $ npm run bench
 
 ###Constructor
 
-> Create an instance, optionally with an Array of elements and a limit value for the queue size.
+> Create an instance, argument within [ ] is optional.
 
 ```javascript
-Train( [ Array elements [, Number xlim ] ] )
+Train( [ Object opt ] )
 // or
-new Train( [ Array elements [, Number xlim ] ] )
+new Train( [ Object opt ] )
+```
+####Options
+
+> Default options are listed.
+
+```javascript
+{
+    // init queue with some elements
+    head : []
+
+    // max limit for 'xpush', 'xconcat', 'x..' methods
+    , xlim : Infinity
+
+    // max size for the rollback queue
+    , rlim : Infinity
+}
 ```
 
 ###Properties
+
+> Don't mess with these properties!
 
 ```javascript
 /*
@@ -77,6 +95,11 @@ Train.length : Number
  * NOTE: Only #xpush(), #xconcat() are affected by this limit.
  */
 Train.xlim : Number
+
+/*
+ * Property to set the size limit for the rollback queue.
+ */
+Train.rlim : Number
 
 /*
  * Property to get current iterator position in the queue.
@@ -164,12 +187,10 @@ Train#shift() : Object
 /* 
  * Evict one or multiple elements, if a number k was specified,
  * it returns an array of K elements, with K <= k.
- * If k > size(), all elements are returned.
+ * If k > # size(), all elements are returned.
  *
- * NOTE: #pop() a single element doesn't return an Array but
- * the element itself, as for #shift.
  * NOTE: #pop(k) elements is faster than executing #shift() * k times.
- * NOTE: For popping all elements you could also do Train#pop( Infinity )
+ * NOTE: For popping all elements you could do Train#pop( Infinity )
  */
 Train#pop( [ Number k ] ) : Array
 

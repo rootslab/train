@@ -2,8 +2,19 @@
 
 var log = console.log
     , assert = require( 'assert' )
+    , util = require( 'util' )
+    , iopt = {
+        showHidden : false
+        , depth : 3
+        , colors : true
+        , customInspect : true 
+    }
+    , inspect = function ( arg, opt ) {
+        return util.inspect( arg, iopt );
+    }
     , Train = require( '../' )
     , t = Train()
+    , expected = null
     , qhead = t.qhead
     , qtail = t.qtail
     , qroll = null

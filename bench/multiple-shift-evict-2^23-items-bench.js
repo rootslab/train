@@ -5,7 +5,7 @@ var log = console.log
         var avg = 1000 * n / ms;
         log( '- total elements evicted: %d.', n );
         log( '- elapsed: %d secs.', ( ms / 1000 ).toFixed( 4 ) );
-        log( '- average: %d el/sec.', avg.toFixed( 0 ) );
+        log( '- average: %d Mel/sec.', ( avg / 1000 / 1000 ).toFixed( 2 ) );
     }
     , Train = require( '../' )
     , t = new Train()

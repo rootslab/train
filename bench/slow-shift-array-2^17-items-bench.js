@@ -23,7 +23,7 @@ for ( ; i--; ) {
     a.push( 1 );
 };
 
-log( '- empty array with #shift()' );
+log( '- empty array with #shift.' );
 
 i = k;
 

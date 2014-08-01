@@ -5,7 +5,7 @@ var log = console.log
     , Train = require( '../' )
     , arr = []
     , xlim = 2
-    , t = new Train( null , xlim )
+    , t = new Train( { xlim : xlim } )
     , v = null
     ;
 
