@@ -1,13 +1,16 @@
 ###Train
 
-[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rootslab/train#mit-license)
-[![GITTIP](http://img.shields.io/gittip/rootslab.svg)](https://www.gittip.com/rootslab/)
-[![NPM DOWNLOADS](http://img.shields.io/npm/dm/train.svg)](http://npm-stat.com/charts.html?package=train)
+[![CODECLIMATE](http://img.shields.io/codeclimate/github/rootslab/train.svg?style=flat)](https://codeclimate.com/github/rootslab/train)
+[![CODECLIMATE-TEST-COVERAGE](http://img.shields.io/codeclimate/coverage/github/rootslab/train.svg?style=flat)](https://codeclimate.com/github/rootslab/train)
 
-[![NPM VERSION](http://img.shields.io/npm/v/train.svg)](https://www.npmjs.org/package/train)
-[![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/train.svg)](http://travis-ci.org/rootslab/train)
-[![BUILD STATUS](http://img.shields.io/david/rootslab/train.svg)](https://david-dm.org/rootslab/train)
-[![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/rootslab/train.svg)](https://david-dm.org/rootslab/train#info=devDependencies)
+[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/rootslab/train#mit-license)
+[![GITTIP](http://img.shields.io/gittip/rootslab.svg?style=flat)](https://www.gittip.com/rootslab/)
+[![NPM DOWNLOADS](http://img.shields.io/npm/dm/train.svg?style=flat)](http://npm-stat.com/charts.html?package=train)
+
+[![NPM VERSION](http://img.shields.io/npm/v/train.svg?style=flat)](https://www.npmjs.org/package/train)
+[![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/train.svg?style=flat)](http://travis-ci.org/rootslab/train)
+[![BUILD STATUS](http://img.shields.io/david/rootslab/train.svg?style=flat)](https://david-dm.org/rootslab/train)
+[![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/rootslab/train.svg?style=flat)](https://david-dm.org/rootslab/train#info=devDependencies)
 
 [![NPM GRAPH1](https://nodei.co/npm-dl/train.png)](https://nodei.co/npm/train/)
 

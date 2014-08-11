@@ -1,5 +1,14 @@
 language: node_js
 node_js:
+  - "0.11"
   - "0.10"
   - "0.8"
-  - "0.6"
+  - "0.6"  
+before_script: 
+ - npm install -g istanbul
+ - npm install -g codeclimate-test-reporter
+script: istanbul cover -v test/run.js 
+after_script:
+ - codeclimate < coverage/lcov.info
+env: 
+ - CODECLIMATE_REPO_TOKEN=e8b3408d5ac99338d8d659eb961681d2d325df53e1b1ae2fefb1bb77f4bcb6e5   
