@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 exports.test = function ( done ) {
-        
+
     var log = console.log
         , assert = require( 'assert' )
         , Train = require( '../' )

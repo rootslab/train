@@ -1,22 +1,25 @@
 ###Train
 
-[![CODECLIMATE](http://img.shields.io/codeclimate/github/rootslab/train.svg?style=flat)](https://codeclimate.com/github/rootslab/train)
-[![CODECLIMATE-TEST-COVERAGE](http://img.shields.io/codeclimate/coverage/github/rootslab/train.svg?style=flat)](https://codeclimate.com/github/rootslab/train)
-
-[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/rootslab/train#mit-license)
-[![GITTIP](http://img.shields.io/gittip/rootslab.svg?style=flat)](https://www.gittip.com/rootslab/)
-[![NPM DOWNLOADS](http://img.shields.io/npm/dm/train.svg?style=flat)](http://npm-stat.com/charts.html?package=train)
-
 [![NPM VERSION](http://img.shields.io/npm/v/train.svg?style=flat)](https://www.npmjs.org/package/train)
+[![CODACY BADGE](https://img.shields.io/codacy/b18ed7d95b0a4707a0ff7b88b30d3def.svg?style=flat)](https://www.codacy.com/public/44gatti/train)
+[![CODECLIMATE](http://img.shields.io/codeclimate/github/rootslab/train.svg?style=flat)](https://codeclimate.com/github/rootslab/train)
+[![CODECLIMATE-TEST-COVERAGE](https://img.shields.io/codeclimate/coverage/github/rootslab/train.svg?style=flat)](https://codeclimate.com/github/rootslab/train)
+[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/rootslab/train#mit-license)
+
 [![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/train.svg?style=flat)](http://travis-ci.org/rootslab/train)
 [![BUILD STATUS](http://img.shields.io/david/rootslab/train.svg?style=flat)](https://david-dm.org/rootslab/train)
 [![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/rootslab/train.svg?style=flat)](https://david-dm.org/rootslab/train#info=devDependencies)
+[![NPM DOWNLOADS](http://img.shields.io/npm/dm/train.svg?style=flat)](http://npm-stat.com/charts.html?package=train)
 
 [![NPM GRAPH1](https://nodei.co/npm-dl/train.png)](https://nodei.co/npm/train/)
 
-[![NPM GRAPH2](https://nodei.co/npm/train.png?downloads=true&stars=true)](https://nodei.co/npm/train/)
+[![NPM GRAPH2](https://nodei.co/npm/train.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/train/)
 
-> **_Train_**, a fast (FIFO) __Queue__ with __rollback__ mechanism.
+[![status](https://sourcegraph.com/api/repos/github.com/rootslab/train/.badges/status.png)](https://sourcegraph.com/github.com/rootslab/train)
+[![views](https://sourcegraph.com/api/repos/github.com/rootslab/train/.counters/views.png)](https://sourcegraph.com/github.com/rootslab/train)
+[![views 24h](https://sourcegraph.com/api/repos/github.com/rootslab/train/.counters/views-24h.png)](https://sourcegraph.com/github.com/rootslab/train)
+
+> **_Train_**, a fast (FIFO) __queue__ with __rollback__ mechanism.
 
 > Behind the scenes, it uses 2 arrays, to simulate and perform fast shifting and popping operations, without using the Array#shift() method.
 

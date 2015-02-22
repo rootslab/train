@@ -1,51 +1,51 @@
 {
-  "name": "train",
-  "version": "4.2.0",
-  "description": "Train, a fast ( FIFO ) Queue with a rollback mechanism. Behind the scenes, it uses 2 arrays, to simulate and perform fast shifting and popping operations, without using the Array#shift() method..",
-  "homepage": "https://github.com/rootslab/train",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/rootslab/train.git"
-  },
-  "keywords": [
-    "queue",
-    "rollback",
-    "rollup",
-    "get",
-    "indexOf",
-    "pop",
-    "shift",
-    "slice",
-    "push",
-    "concat",
-    "melt",
-    "flush",
-    "circular",
-    "next",
-    "forEach",
-    "iterate",
-    "FIFO",
-    "train",
-    "util"
-  ],
-  "author": {
-    "name": "Guglielmo Ferri",
-    "email": "44gatti@gmail.com"
-  },
-  "dependencies": {
-    "bolgia" : ">=2.7.0"
-    },
-  "main": "index",
-  "engines": {
+  "name": "train"
+  , "version": "4.2.1"
+  , "description": "Train a fast (FIFO) queue with a rollback mechanism. Behind the scenes it uses 2 arrays to simulate and perform fast shifting and popping operations without using the Array#shift() method.."
+  , "homepage": "https://github.com/rootslab/train"
+  , "repository": {
+    "type": "git"
+    , "url": "git://github.com/rootslab/train.git"
+  }
+  , "keywords": [
+    "queue"
+    , "rollback"
+    , "rollup"
+    , "get"
+    , "indexOf"
+    , "pop"
+    , "shift"
+    , "slice"
+    , "push"
+    , "concat"
+    , "melt"
+    , "flush"
+    , "circular"
+    , "next"
+    , "forEach"
+    , "iterate"
+    , "FIFO"
+    , "train"
+    , "util"
+  ]
+  , "author": {
+    "name": "Guglielmo Ferri"
+    , "email": "44gatti@gmail.com"
+  }
+  , "dependencies": {
+    "bolgia" : ">=2.7.3"
+  }
+  , "main": "index"
+  , "engines": {
     "node": ">=0.4.x"
-  },
-  "scripts": {
-    "test": "node test/run.js",
-    "bench": "bash bench/run.sh"
-  },
-  "license": "MIT",
-  "readmeFilename": "Readme.md",
-  "bugs": {
+  }
+  , "scripts": {
+    "test": "node test/run.js"
+    , "bench": "bash bench/run.sh"
+  }
+  , "license": "MIT"
+  , "readmeFilename": "Readme.md"
+  , "bugs": {
     "url": "https://github.com/rootslab/train/issues"
   }
 }
