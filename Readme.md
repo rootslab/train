@@ -1,4 +1,4 @@
-###Train
+### Train
 
 [![NPM VERSION](http://img.shields.io/npm/v/train.svg?style=flat)](https://www.npmjs.org/package/train)
 [![CODACY BADGE](https://img.shields.io/codacy/b18ed7d95b0a4707a0ff7b88b30d3def.svg?style=flat)](https://www.codacy.com/public/44gatti/train)
@@ -15,9 +15,6 @@
 
 [![NPM GRAPH2](https://nodei.co/npm/train.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/train/)
 
-[![status](https://sourcegraph.com/api/repos/github.com/rootslab/train/.badges/status.png)](https://sourcegraph.com/github.com/rootslab/train)
-[![views](https://sourcegraph.com/api/repos/github.com/rootslab/train/.counters/views.png)](https://sourcegraph.com/github.com/rootslab/train)
-[![views 24h](https://sourcegraph.com/api/repos/github.com/rootslab/train/.counters/views-24h.png)](https://sourcegraph.com/github.com/rootslab/train)
 
 > **_Train_**, a fast (FIFO) __queue__ with __rollback__ mechanism.
 
@@ -30,7 +27,7 @@
 
 > If you need a simple (LIFO) __Stack__, try __[Peela](https://github.com/rootslab/peela)__.
 
-###Install
+### Install
 
 ```bash
 $ npm install train [-g]
@@ -42,21 +39,21 @@ $ npm install train [-g]
 var Train  = require( 'train' );
 ```
 
-###Run Tests
+### Run Tests
 
 ```bash
 $ cd train/
 $ npm test
 ```
 
-###Run Benchmarks
+### Run Benchmarks
 
 ```bash
 $ cd train/
 $ npm run bench
 ```
 
-###Constructor
+### Constructor
 
 > Create an instance, argument within [ ] is optional.
 
@@ -65,7 +62,7 @@ Train( [ Object opt ] )
 // or
 new Train( [ Object opt ] )
 ```
-####Options
+### #Options
 
 > Default options are listed.
 
@@ -82,7 +79,7 @@ new Train( [ Object opt ] )
 }
 ```
 
-###Properties
+### Properties
 
 > Don't mess with these properties!
 
@@ -163,7 +160,7 @@ Train.qroll : Array
 
 ```
 
-###Methods
+### Methods
 
 > Arguments within [ ] are optional.
 
@@ -350,9 +347,9 @@ Train#iterate( Function fn [, Object scope [, Function cback [, Boolean evict ] 
 
 ```
 
-### MIT License
+###  MIT License
 
-> Copyright (c) 2013 &lt; Guglielmo Ferri : 44gatti@gmail.com &gt;
+> Copyright (c) 2013-present &lt; Guglielmo Ferri : 44gatti@gmail.com &gt;
 
 > Permission is hereby granted, free of charge, to any person obtaining
 > a copy of this software and associated documentation files (the
