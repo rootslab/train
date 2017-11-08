@@ -8,10 +8,28 @@ exports.test = function ( done ) {
         , p = 20
         , k = Math.pow( 2, p )
         , i = 0
+        , el = null
         , result1 = [] 
         , result2 = []
         , exit = typeof done === 'function' ? done : function () {}
         ;
+
+    log( '- add number 0 and check pop(1) result' );
+    t.push( 0 );
+    el = t.pop();
+    assert.deepEqual( el, [ 0 ], 'expected: (0), got: (' + el + ')' );
+
+    log( '- add null value and check pop(1) result' );
+    t.push( null );
+    el = t.pop();
+    assert.deepEqual( el, [ null ], 'expected: (), got: (' + el + ')' );
+
+
+    log( '- add undefined value and check pop(1) result, should be empty' );
+    t.push( undefined );
+    el = t.pop();
+    assert.deepEqual( el, [], 'expected: (), got: (' + el + ')' );
+
 
     // get multilple shift() results
 
