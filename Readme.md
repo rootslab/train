@@ -6,14 +6,15 @@
 [![CODECLIMATE-TEST-COVERAGE](https://img.shields.io/codeclimate/coverage/github/rootslab/train.svg?style=flat)](https://codeclimate.com/github/rootslab/train)
 [![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/rootslab/train#mit-license)
 
+![NODE VERSION](https://img.shields.io/node/v/train.svg)
 [![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/train.svg?style=flat)](http://travis-ci.org/rootslab/train)
 [![BUILD STATUS](http://img.shields.io/david/rootslab/train.svg?style=flat)](https://david-dm.org/rootslab/train)
 [![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/rootslab/train.svg?style=flat)](https://david-dm.org/rootslab/train#info=devDependencies)
-[![NPM DOWNLOADS](http://img.shields.io/npm/dm/train.svg?style=flat)](http://npm-stat.com/charts.html?package=train)
 
-[![NPM GRAPH1](https://nodei.co/npm-dl/train.png)](https://nodei.co/npm/train/)
+[![NPM MONTHLY](http://img.shields.io/npm/dm/train.svg?style=flat)](http://npm-stat.com/charts.html?package=train)
+![NPM YEARLY](https://img.shields.io/npm/dy/train.svg)
 
-[![NPM GRAPH2](https://nodei.co/npm/train.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/train/)
+[![NPM GRAPH](https://nodei.co/npm/train.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/train/)
 
 
 > **_Train_**, a fast (FIFO) __queue__ with __rollback__ mechanism.
